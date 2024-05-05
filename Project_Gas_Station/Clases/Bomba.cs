@@ -16,7 +16,14 @@ namespace Project_Gas_Station.Clases
         public bool EstaOcupada { get => estaOcupada; set => estaOcupada = value; }
         public double CantidadDispensada { get => cantidadDispensada; set => cantidadDispensada = value; }
 
-        public void IniciarAbastecimiento(double cantidad)
+        public Bomba(int id)
+        {
+            this.id = id;
+            this.estaOcupada = false;
+            this.cantidadDispensada= 0.0;
+        }
+
+        public void IniciarAbastecimiento(double cantidad, bool esPrepago)
         {
             EstaOcupada = true;
             CantidadDispensada = cantidad;
