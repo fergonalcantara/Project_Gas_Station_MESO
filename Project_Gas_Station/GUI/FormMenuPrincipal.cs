@@ -1,7 +1,11 @@
+using Project_Gas_Station.Clases;
+using Project_Gas_Station.GUI;
+
 namespace Project_Gas_Station
 {
     public partial class FormMenuPrincipal : Form
     {
+        private Autenticador autenticador = new Autenticador();
         public FormMenuPrincipal()
         {
             InitializeComponent();
@@ -28,7 +32,7 @@ namespace Project_Gas_Station
                     break;
             }
         }
-        //----------------DIBUJAR RECTANGULO / EXCLUIR ESQUINA PANEL 
+ 
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
@@ -38,13 +42,44 @@ namespace Project_Gas_Station
             this.panelContenedor.Region = region;
             this.Invalidate();
         }
-        //----------------COLOR Y GRIP DE RECTANGULO INFERIOR
+
         protected override void OnPaint(PaintEventArgs e)
         {
             SolidBrush blueBrush = new SolidBrush(Color.FromArgb(244, 244, 244));
             e.Graphics.FillRectangle(blueBrush, sizeGripRectangle);
             base.OnPaint(e);
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void buttonIngresar_Click(object sender, EventArgs e)
+        {
+            string usuario = textBoxUsuario.Text;
+            string contrasenia = textBoxContrasenia.Text;
+            Autenticador.TipoDeUsuario userType = autenticador.Autenticar(usuario, contrasenia);
+
+            switch (userType)
+            {
+                case Autenticador.TipoDeUsuario.Admin:
+                    AdminForm adminForm = new AdminForm(); 
+                    adminForm.Show();
+                    this.Hide(); 
+                    break;
+                case Autenticador.TipoDeUsuario.Trabajador:
+                    TrabajadorForm workerForm = new TrabajadorForm(); 
+                    workerForm.Show();
+                    this.Hide(); 
+                    break;
+                default:
+                    MessageBox.Show("Usuario o contraseña incorrecta","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxUsuario.Clear();
+                    textBoxContrasenia.Clear();
+                    break;
+            }
         }
     }
 }

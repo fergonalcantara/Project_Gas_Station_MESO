@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Project_Gas_Station.GUI
 {
-    public partial class Form2 : Form
+    public partial class AdminForm : Form
     {
-        public Form2()
+        public AdminForm()
         {
             InitializeComponent();
         }
