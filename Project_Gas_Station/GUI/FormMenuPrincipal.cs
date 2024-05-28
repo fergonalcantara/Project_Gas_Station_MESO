@@ -69,11 +69,6 @@ namespace Project_Gas_Station
                     adminForm.Show();
                     this.Hide(); 
                     break;
-                case Autenticador.TipoDeUsuario.Trabajador:
-                    TrabajadorForm workerForm = new TrabajadorForm(); 
-                    workerForm.Show();
-                    this.Hide(); 
-                    break;
                 default:
                     MessageBox.Show("Usuario o contraseña incorrecta","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textBoxUsuario.Clear();

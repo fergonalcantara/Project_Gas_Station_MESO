@@ -12,23 +12,16 @@ namespace Project_Gas_Station.Clases
         {
             Ninguno,
             Admin,
-            Trabajador
         }
 
         private string usuarioAdmin = "admin";
         private string contraseniaAdmin = "admin12345*";
-        private string usuarioTrabajador = "trabajador";
-        private string contraseniaTrabajador = "totoGas#";
 
         public TipoDeUsuario Autenticar(string usuario, string contrasenia)
         {
             if (usuario == usuarioAdmin && contrasenia == contraseniaAdmin)
             {
                 return TipoDeUsuario.Admin;
-            }
-            else if (usuario == usuarioTrabajador && contrasenia == contraseniaTrabajador)
-            {
-                return TipoDeUsuario.Trabajador;
             }
             return TipoDeUsuario.Ninguno;
         }

@@ -52,16 +52,18 @@
             panelContenedor.Dock = DockStyle.Fill;
             panelContenedor.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panelContenedor.Location = new Point(0, 0);
+            panelContenedor.Margin = new Padding(3, 4, 3, 4);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1100, 600);
+            panelContenedor.Size = new Size(1257, 800);
             panelContenedor.TabIndex = 0;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(83, 152);
+            pictureBox1.Location = new Point(95, 203);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(381, 273);
+            pictureBox1.Size = new Size(435, 364);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -77,18 +79,19 @@
             panel1.Controls.Add(textBoxContrasenia);
             panel1.Controls.Add(textBoxUsuario);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(581, 0);
+            panel1.Location = new Point(664, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(519, 600);
+            panel1.Size = new Size(593, 800);
             panel1.TabIndex = 0;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label4.Location = new Point(239, 115);
+            label4.Location = new Point(273, 153);
             label4.Name = "label4";
-            label4.Size = new Size(81, 25);
+            label4.Size = new Size(104, 31);
             label4.TabIndex = 7;
             label4.Text = "LOGIN";
             // 
@@ -99,9 +102,10 @@
             button2.BackgroundImageLayout = ImageLayout.Stretch;
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(458, 546);
+            button2.Location = new Point(523, 728);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(49, 42);
+            button2.Size = new Size(56, 56);
             button2.TabIndex = 5;
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
@@ -110,9 +114,10 @@
             // 
             buttonIngresar.BackColor = Color.IndianRed;
             buttonIngresar.FlatStyle = FlatStyle.Flat;
-            buttonIngresar.Location = new Point(183, 390);
+            buttonIngresar.Location = new Point(209, 520);
+            buttonIngresar.Margin = new Padding(3, 4, 3, 4);
             buttonIngresar.Name = "buttonIngresar";
-            buttonIngresar.Size = new Size(167, 35);
+            buttonIngresar.Size = new Size(191, 47);
             buttonIngresar.TabIndex = 4;
             buttonIngresar.Text = "INGRESAR";
             buttonIngresar.UseVisualStyleBackColor = false;
@@ -122,9 +127,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(99, 320);
+            label2.Location = new Point(87, 425);
             label2.Name = "label2";
-            label2.Size = new Size(134, 20);
+            label2.Size = new Size(169, 25);
             label2.TabIndex = 3;
             label2.Text = "CONTRASEÑA:";
             // 
@@ -132,37 +137,40 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(99, 222);
+            label1.Location = new Point(87, 295);
             label1.Name = "label1";
-            label1.Size = new Size(96, 20);
+            label1.Size = new Size(116, 25);
             label1.TabIndex = 2;
             label1.Text = "USUARIO:";
             // 
             // textBoxContrasenia
             // 
             textBoxContrasenia.BorderStyle = BorderStyle.FixedSingle;
-            textBoxContrasenia.Location = new Point(239, 319);
+            textBoxContrasenia.Location = new Point(273, 425);
+            textBoxContrasenia.Margin = new Padding(3, 4, 3, 4);
             textBoxContrasenia.Name = "textBoxContrasenia";
             textBoxContrasenia.PasswordChar = '*';
-            textBoxContrasenia.Size = new Size(175, 21);
+            textBoxContrasenia.Size = new Size(200, 24);
             textBoxContrasenia.TabIndex = 1;
             // 
             // textBoxUsuario
             // 
             textBoxUsuario.BorderStyle = BorderStyle.FixedSingle;
-            textBoxUsuario.Location = new Point(239, 221);
+            textBoxUsuario.Location = new Point(273, 295);
+            textBoxUsuario.Margin = new Padding(3, 4, 3, 4);
             textBoxUsuario.Name = "textBoxUsuario";
-            textBoxUsuario.Size = new Size(175, 21);
+            textBoxUsuario.Size = new Size(200, 24);
             textBoxUsuario.TabIndex = 0;
             // 
             // FormMenuPrincipal
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1100, 600);
+            ClientSize = new Size(1257, 800);
             Controls.Add(panelContenedor);
             FormBorderStyle = FormBorderStyle.None;
-            MinimumSize = new Size(680, 500);
+            Margin = new Padding(3, 4, 3, 4);
+            MinimumSize = new Size(777, 667);
             Name = "FormMenuPrincipal";
             Text = "Menu Principal";
             panelContenedor.ResumeLayout(false);
