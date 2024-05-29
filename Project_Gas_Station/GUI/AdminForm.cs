@@ -6,9 +6,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Project_Gas_Station.GUI
 {
@@ -21,8 +23,8 @@ namespace Project_Gas_Station.GUI
         {
             InitializeComponent();
             InicializarControlBomba();
-            LeerArchivo();
             this.totoGas = new Gasolinera();
+            LeerArchivo();
         }
 
         private void InicializarControlBomba()
@@ -39,10 +41,21 @@ namespace Project_Gas_Station.GUI
 
         private void buttonDispensarBomba1_Click(object sender, EventArgs e)
         {
-            int idBomba = 1;
+            int idBomba = totoGas.Bombas[0].Id;
+            DateTime fechaHora = DateTime.Now.Date;
             double cantidadLitros = Convert.ToDouble(textBoxCantidadBomba1.Text) / Convert.ToDouble(textBoxPrecioDelDia.Text);
             double precioDelDia = Convert.ToDouble(textBoxPrecioDelDia.Text);
+            string tipoDespacho = Convert.ToString(comboBoxTipoDespachoBomba1.Text);
+            string nombreCliente = textBoxNombreCliente.Text;
+
             MessageBox.Show(Convert.ToString(cantidadLitros));
+
+            string nombreArchivo = "abastecimientos.txt"; 
+            FileStream archivo = new FileStream(nombreArchivo, FileMode.Append, FileAccess.Write); 
+            StreamWriter EscribirArchivo = new StreamWriter(archivo);
+            string linea = idBomba + ";" + fechaHora + ";" + cantidadLitros + ";" + precioDelDia + ";" + tipoDespacho + ";" + nombreCliente;
+            EscribirArchivo.WriteLine(linea);
+            EscribirArchivo.Close();
 
             double tiempoEnMinutos = cantidadLitros / litroPorMinuto;
             int duracionDeLlenado = (int)(tiempoEnMinutos * 60 * 1000);
@@ -50,7 +63,7 @@ namespace Project_Gas_Station.GUI
             controladorBomba.SendCommand("ON", duracionDeLlenado);
 
 
-            totoGas.Abastecimientos.Add(totoGas.Bombas[0], cantidadLitros, precioDelDia, comboBox1.Text,);
+            
             //progressBar1.Minimum = 0;
             //progressBar1.Maximum = duracionDeLlenado;
             //progressBar1.Value = 0;
@@ -65,18 +78,18 @@ namespace Project_Gas_Station.GUI
 
         private void buttonDispensarBomba2_Click(object sender, EventArgs e)
         {
-            int idBomba = 2;
+            int idBomba = totoGas.Bombas[1].Id;
 
         }
 
         private void buttonDispensarBomba3_Click(object sender, EventArgs e)
         {
-            int idBomba = 3;
+            int idBomba = totoGas.Bombas[2].Id;
         }
 
         private void buttonDispensarBomba4_Click(object sender, EventArgs e)
         {
-            int idBomba = 4;
+            int idBomba = totoGas.Bombas[3].Id;
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -88,7 +101,7 @@ namespace Project_Gas_Station.GUI
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == 1)
+            if (comboBoxTipoDespachoBomba1.SelectedIndex == 1)
             {
                 textBoxCantidadBomba1.Enabled = false;
             }

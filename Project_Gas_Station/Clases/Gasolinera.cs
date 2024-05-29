@@ -9,18 +9,24 @@ namespace Project_Gas_Station.Clases
 {
     internal class Gasolinera
     {
-        public List<Bomba> Bombas { get; set; } = new List<Bomba>();
-        public List<Abastecimiento> Abastecimientos { get; set; } = new List<Abastecimiento>();
-        public double PrecioPorLitro { get; set; }
+        private List<Bomba> bombas;
+        private List<Abastecimiento> abastecimientos;
+        private double precioPorLitro;
 
         public Gasolinera()
         {
+            this.bombas = new List<Bomba>();
             for (int i = 0; i < 4; i++)
             {
                 Bombas.Add(new Bomba(i + 1));
             }
-            this.PrecioPorLitro = 0.0;
+            this.precioPorLitro = 0.0;
+            this.abastecimientos = new List<Abastecimiento>();
         }
+
+        public List<Bomba> Bombas { get => bombas; set => bombas = value; }
+        public List<Abastecimiento> Abastecimientos { get => abastecimientos; set => abastecimientos = value; }
+        public double PrecioPorLitro1 { get => precioPorLitro; set => precioPorLitro = value; }
 
         public void IniciarAbastecimiento(int idBomba, double cantidad, bool esPrepago)
         {

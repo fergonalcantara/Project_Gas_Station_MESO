@@ -32,22 +32,22 @@
             tabPageDispensar = new TabPage();
             progressBar1 = new ProgressBar();
             panelBomba4 = new Panel();
-            comboBox4 = new ComboBox();
+            comboBoxTipoDespachoBomba4 = new ComboBox();
             label7 = new Label();
             buttonDispensarBomba4 = new Button();
             textBox4 = new TextBox();
             panelBomba3 = new Panel();
-            comboBox3 = new ComboBox();
+            comboBoxTipoDespachoBomba3 = new ComboBox();
             label6 = new Label();
             buttonDispensarBomba3 = new Button();
             textBox3 = new TextBox();
             panelBomba2 = new Panel();
-            comboBox2 = new ComboBox();
+            comboBoxTipoDespachoBomba2 = new ComboBox();
             label5 = new Label();
             buttonDispensarBomba2 = new Button();
             textBox2 = new TextBox();
             panelBomba1 = new Panel();
-            comboBox1 = new ComboBox();
+            comboBoxTipoDespachoBomba1 = new ComboBox();
             label2 = new Label();
             buttonDispensarBomba1 = new Button();
             textBoxCantidadBomba1 = new TextBox();
@@ -116,7 +116,7 @@
             // panelBomba4
             // 
             panelBomba4.BorderStyle = BorderStyle.FixedSingle;
-            panelBomba4.Controls.Add(comboBox4);
+            panelBomba4.Controls.Add(comboBoxTipoDespachoBomba4);
             panelBomba4.Controls.Add(label7);
             panelBomba4.Controls.Add(buttonDispensarBomba4);
             panelBomba4.Controls.Add(textBox4);
@@ -126,14 +126,14 @@
             panelBomba4.Size = new Size(260, 433);
             panelBomba4.TabIndex = 4;
             // 
-            // comboBox4
+            // comboBoxTipoDespachoBomba4
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
-            comboBox4.Location = new Point(32, 69);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(195, 23);
-            comboBox4.TabIndex = 7;
+            comboBoxTipoDespachoBomba4.FormattingEnabled = true;
+            comboBoxTipoDespachoBomba4.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
+            comboBoxTipoDespachoBomba4.Location = new Point(32, 69);
+            comboBoxTipoDespachoBomba4.Name = "comboBoxTipoDespachoBomba4";
+            comboBoxTipoDespachoBomba4.Size = new Size(195, 23);
+            comboBoxTipoDespachoBomba4.TabIndex = 7;
             // 
             // label7
             // 
@@ -168,7 +168,7 @@
             // panelBomba3
             // 
             panelBomba3.BorderStyle = BorderStyle.FixedSingle;
-            panelBomba3.Controls.Add(comboBox3);
+            panelBomba3.Controls.Add(comboBoxTipoDespachoBomba3);
             panelBomba3.Controls.Add(label6);
             panelBomba3.Controls.Add(buttonDispensarBomba3);
             panelBomba3.Controls.Add(textBox3);
@@ -178,14 +178,14 @@
             panelBomba3.Size = new Size(257, 433);
             panelBomba3.TabIndex = 3;
             // 
-            // comboBox3
+            // comboBoxTipoDespachoBomba3
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
-            comboBox3.Location = new Point(32, 69);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(196, 23);
-            comboBox3.TabIndex = 7;
+            comboBoxTipoDespachoBomba3.FormattingEnabled = true;
+            comboBoxTipoDespachoBomba3.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
+            comboBoxTipoDespachoBomba3.Location = new Point(32, 69);
+            comboBoxTipoDespachoBomba3.Name = "comboBoxTipoDespachoBomba3";
+            comboBoxTipoDespachoBomba3.Size = new Size(196, 23);
+            comboBoxTipoDespachoBomba3.TabIndex = 7;
             // 
             // label6
             // 
@@ -220,7 +220,7 @@
             // panelBomba2
             // 
             panelBomba2.BorderStyle = BorderStyle.FixedSingle;
-            panelBomba2.Controls.Add(comboBox2);
+            panelBomba2.Controls.Add(comboBoxTipoDespachoBomba2);
             panelBomba2.Controls.Add(label5);
             panelBomba2.Controls.Add(buttonDispensarBomba2);
             panelBomba2.Controls.Add(textBox2);
@@ -230,14 +230,14 @@
             panelBomba2.Size = new Size(258, 433);
             panelBomba2.TabIndex = 2;
             // 
-            // comboBox2
+            // comboBoxTipoDespachoBomba2
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
-            comboBox2.Location = new Point(32, 69);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(194, 23);
-            comboBox2.TabIndex = 7;
+            comboBoxTipoDespachoBomba2.FormattingEnabled = true;
+            comboBoxTipoDespachoBomba2.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
+            comboBoxTipoDespachoBomba2.Location = new Point(32, 69);
+            comboBoxTipoDespachoBomba2.Name = "comboBoxTipoDespachoBomba2";
+            comboBoxTipoDespachoBomba2.Size = new Size(194, 23);
+            comboBoxTipoDespachoBomba2.TabIndex = 7;
             // 
             // label5
             // 
@@ -272,7 +272,7 @@
             // panelBomba1
             // 
             panelBomba1.BorderStyle = BorderStyle.FixedSingle;
-            panelBomba1.Controls.Add(comboBox1);
+            panelBomba1.Controls.Add(comboBoxTipoDespachoBomba1);
             panelBomba1.Controls.Add(label2);
             panelBomba1.Controls.Add(buttonDispensarBomba1);
             panelBomba1.Controls.Add(textBoxCantidadBomba1);
@@ -282,15 +282,15 @@
             panelBomba1.Size = new Size(260, 433);
             panelBomba1.TabIndex = 1;
             // 
-            // comboBox1
+            // comboBoxTipoDespachoBomba1
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
-            comboBox1.Location = new Point(38, 69);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(182, 23);
-            comboBox1.TabIndex = 5;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            comboBoxTipoDespachoBomba1.FormattingEnabled = true;
+            comboBoxTipoDespachoBomba1.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
+            comboBoxTipoDespachoBomba1.Location = new Point(38, 69);
+            comboBoxTipoDespachoBomba1.Name = "comboBoxTipoDespachoBomba1";
+            comboBoxTipoDespachoBomba1.Size = new Size(182, 23);
+            comboBoxTipoDespachoBomba1.TabIndex = 5;
+            comboBoxTipoDespachoBomba1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -523,16 +523,16 @@
         private Label label1;
         private TextBox textBoxPrecioDelDia;
         private Label label2;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxTipoDespachoBomba1;
         private Label label3;
         private Label label4;
         private ComboBox comboBoxSeleccionarBomba;
         private TextBox textBoxNombreCliente;
-        private ComboBox comboBox4;
+        private ComboBox comboBoxTipoDespachoBomba4;
         private Label label7;
-        private ComboBox comboBox3;
+        private ComboBox comboBoxTipoDespachoBomba3;
         private Label label6;
-        private ComboBox comboBox2;
+        private ComboBox comboBoxTipoDespachoBomba2;
         private Label label5;
         private DateTimePicker dateTimePicker1;
         private Button buttonFiltrar;
