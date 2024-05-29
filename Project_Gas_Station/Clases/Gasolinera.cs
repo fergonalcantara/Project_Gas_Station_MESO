@@ -20,25 +20,5 @@ namespace Project_Gas_Station.Clases
                 Bombas.Add(new Bomba(i + 1));
             }
         }
-
-        public void IniciarAbastecimiento(int idBomba, double cantidad, bool esPrepago)
-        {
-            var bomba = Bombas.FirstOrDefault(b => b.Id == idBomba);
-            if (bomba != null)
-            {
-                bomba.IniciarAbastecimiento(cantidad, esPrepago);
-            }
-        }
-
-        public void DetenerAbastecimiento(int idBomba)
-        {
-            var bomba = Bombas.FirstOrDefault(b => b.Id == idBomba);
-            bomba?.DetenerAbastecimiento();
-        }
-
-        public void RegistrarTransaccion(Abastecimiento abastecimiento)
-        {
-            Abastecimientos.Add(abastecimiento);
-        }
     }
 }
