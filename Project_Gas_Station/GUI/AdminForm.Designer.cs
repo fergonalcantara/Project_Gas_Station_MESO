@@ -33,23 +33,15 @@
             progressBar1 = new ProgressBar();
             panel5 = new Panel();
             button4 = new Button();
-            radioButton8 = new RadioButton();
-            radioButton7 = new RadioButton();
             textBox4 = new TextBox();
             panel4 = new Panel();
             button3 = new Button();
-            radioButton6 = new RadioButton();
-            radioButton5 = new RadioButton();
             textBox3 = new TextBox();
             panel3 = new Panel();
-            radioButton4 = new RadioButton();
-            radioButton3 = new RadioButton();
             button2 = new Button();
             textBox2 = new TextBox();
             panel2 = new Panel();
             label2 = new Label();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
             buttonDispensarBomba1 = new Button();
             textBox1 = new TextBox();
             panel1 = new Panel();
@@ -58,6 +50,7 @@
             label1 = new Label();
             tabPageEstadisticas = new TabPage();
             dataGridView1 = new DataGridView();
+            comboBox1 = new ComboBox();
             tabControl1.SuspendLayout();
             tabPageDispensar.SuspendLayout();
             panel5.SuspendLayout();
@@ -89,11 +82,11 @@
             tabPageDispensar.Controls.Add(panel3);
             tabPageDispensar.Controls.Add(panel2);
             tabPageDispensar.Controls.Add(panel1);
-            tabPageDispensar.Location = new Point(4, 24);
+            tabPageDispensar.Location = new Point(4, 31);
             tabPageDispensar.Margin = new Padding(2);
             tabPageDispensar.Name = "tabPageDispensar";
             tabPageDispensar.Padding = new Padding(2);
-            tabPageDispensar.Size = new Size(1056, 626);
+            tabPageDispensar.Size = new Size(1056, 619);
             tabPageDispensar.TabIndex = 0;
             tabPageDispensar.Text = "Disepensar";
             tabPageDispensar.UseVisualStyleBackColor = true;
@@ -110,8 +103,6 @@
             // 
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(button4);
-            panel5.Controls.Add(radioButton8);
-            panel5.Controls.Add(radioButton7);
             panel5.Controls.Add(textBox4);
             panel5.Location = new Point(792, 108);
             panel5.Margin = new Padding(2);
@@ -129,44 +120,18 @@
             button4.Text = "button4";
             button4.UseVisualStyleBackColor = true;
             // 
-            // radioButton8
-            // 
-            radioButton8.AutoSize = true;
-            radioButton8.Location = new Point(36, 84);
-            radioButton8.Margin = new Padding(2);
-            radioButton8.Name = "radioButton8";
-            radioButton8.Size = new Size(95, 19);
-            radioButton8.TabIndex = 2;
-            radioButton8.TabStop = true;
-            radioButton8.Text = "radioButton8";
-            radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            radioButton7.AutoSize = true;
-            radioButton7.Location = new Point(36, 63);
-            radioButton7.Margin = new Padding(2);
-            radioButton7.Name = "radioButton7";
-            radioButton7.Size = new Size(95, 19);
-            radioButton7.TabIndex = 1;
-            radioButton7.TabStop = true;
-            radioButton7.Text = "radioButton7";
-            radioButton7.UseVisualStyleBackColor = true;
-            // 
             // textBox4
             // 
             textBox4.Location = new Point(36, 19);
             textBox4.Margin = new Padding(2);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(195, 21);
+            textBox4.Size = new Size(195, 28);
             textBox4.TabIndex = 0;
             // 
             // panel4
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(button3);
-            panel4.Controls.Add(radioButton6);
-            panel4.Controls.Add(radioButton5);
             panel4.Controls.Add(textBox3);
             panel4.Location = new Point(531, 108);
             panel4.Margin = new Padding(2);
@@ -184,43 +149,17 @@
             button3.Text = "button3";
             button3.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
-            // 
-            radioButton6.AutoSize = true;
-            radioButton6.Location = new Point(38, 84);
-            radioButton6.Margin = new Padding(2);
-            radioButton6.Name = "radioButton6";
-            radioButton6.Size = new Size(95, 19);
-            radioButton6.TabIndex = 2;
-            radioButton6.TabStop = true;
-            radioButton6.Text = "radioButton6";
-            radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            radioButton5.AutoSize = true;
-            radioButton5.Location = new Point(38, 63);
-            radioButton5.Margin = new Padding(2);
-            radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(95, 19);
-            radioButton5.TabIndex = 1;
-            radioButton5.TabStop = true;
-            radioButton5.Text = "radioButton5";
-            radioButton5.UseVisualStyleBackColor = true;
-            // 
             // textBox3
             // 
             textBox3.Location = new Point(38, 19);
             textBox3.Margin = new Padding(2);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(199, 21);
+            textBox3.Size = new Size(199, 28);
             textBox3.TabIndex = 0;
             // 
             // panel3
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(radioButton4);
-            panel3.Controls.Add(radioButton3);
             panel3.Controls.Add(button2);
             panel3.Controls.Add(textBox2);
             panel3.Location = new Point(268, 108);
@@ -228,30 +167,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(258, 433);
             panel3.TabIndex = 2;
-            // 
-            // radioButton4
-            // 
-            radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(34, 84);
-            radioButton4.Margin = new Padding(2);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(95, 19);
-            radioButton4.TabIndex = 3;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "radioButton4";
-            radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(34, 63);
-            radioButton3.Margin = new Padding(2);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(95, 19);
-            radioButton3.TabIndex = 2;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "radioButton3";
-            radioButton3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -268,15 +183,14 @@
             textBox2.Location = new Point(34, 19);
             textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(195, 21);
+            textBox2.Size = new Size(195, 28);
             textBox2.TabIndex = 0;
             // 
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(comboBox1);
             panel2.Controls.Add(label2);
-            panel2.Controls.Add(radioButton2);
-            panel2.Controls.Add(radioButton1);
             panel2.Controls.Add(buttonDispensarBomba1);
             panel2.Controls.Add(textBox1);
             panel2.Location = new Point(4, 108);
@@ -291,33 +205,9 @@
             label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(26, 25);
             label2.Name = "label2";
-            label2.Size = new Size(217, 15);
+            label2.Size = new Size(303, 22);
             label2.TabIndex = 4;
             label2.Text = "Seleccione su tipo de Despacho:";
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(130, 63);
-            radioButton2.Margin = new Padding(2);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(101, 19);
-            radioButton2.TabIndex = 3;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Tanque Lleno";
-            radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(37, 63);
-            radioButton1.Margin = new Padding(2);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(72, 19);
-            radioButton1.TabIndex = 2;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Prepago";
-            radioButton1.UseVisualStyleBackColor = true;
             // 
             // buttonDispensarBomba1
             // 
@@ -332,10 +222,10 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(33, 131);
+            textBox1.Location = new Point(58, 153);
             textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(198, 21);
+            textBox1.Size = new Size(182, 28);
             textBox1.TabIndex = 0;
             // 
             // panel1
@@ -355,7 +245,7 @@
             textBox5.Enabled = false;
             textBox5.Location = new Point(172, 51);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(163, 21);
+            textBox5.Size = new Size(163, 28);
             textBox5.TabIndex = 2;
             // 
             // pictureBox1
@@ -374,18 +264,18 @@
             label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(172, 23);
             label1.Name = "label1";
-            label1.Size = new Size(163, 25);
+            label1.Size = new Size(234, 37);
             label1.TabIndex = 0;
             label1.Text = "Precio Del Día";
             // 
             // tabPageEstadisticas
             // 
             tabPageEstadisticas.Controls.Add(dataGridView1);
-            tabPageEstadisticas.Location = new Point(4, 24);
+            tabPageEstadisticas.Location = new Point(4, 34);
             tabPageEstadisticas.Margin = new Padding(2);
             tabPageEstadisticas.Name = "tabPageEstadisticas";
             tabPageEstadisticas.Padding = new Padding(2);
-            tabPageEstadisticas.Size = new Size(1056, 626);
+            tabPageEstadisticas.Size = new Size(1056, 616);
             tabPageEstadisticas.TabIndex = 1;
             tabPageEstadisticas.Text = "Estadisticas";
             tabPageEstadisticas.UseVisualStyleBackColor = true;
@@ -395,12 +285,22 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(3, 143);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1046, 478);
             dataGridView1.TabIndex = 0;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
+            comboBox1.Location = new Point(58, 66);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(182, 30);
+            comboBox1.TabIndex = 5;
+            // 
             // AdminForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1083, 672);
             Controls.Add(tabControl1);
@@ -440,18 +340,10 @@
         private Panel panel1;
         private TabPage tabPageEstadisticas;
         private Button button4;
-        private RadioButton radioButton8;
-        private RadioButton radioButton7;
         private TextBox textBox4;
         private Button button3;
-        private RadioButton radioButton6;
-        private RadioButton radioButton5;
         private TextBox textBox3;
-        private RadioButton radioButton4;
-        private RadioButton radioButton3;
         private Button button2;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
         private Button buttonDispensarBomba1;
         private ProgressBar progressBar1;
         private DataGridView dataGridView1;
@@ -459,5 +351,6 @@
         private Label label1;
         private TextBox textBox5;
         private Label label2;
+        private ComboBox comboBox1;
     }
 }
