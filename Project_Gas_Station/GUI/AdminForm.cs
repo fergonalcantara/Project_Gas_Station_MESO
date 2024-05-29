@@ -28,7 +28,7 @@ namespace Project_Gas_Station.GUI
         {
             try
             {
-                controladorBomba = new ControladorSerial("COM7", 9600); 
+                controladorBomba = new ControladorSerial("COM7", 9600);
             }
             catch (Exception ex)
             {
@@ -52,7 +52,7 @@ namespace Project_Gas_Station.GUI
             //progressBar1.Maximum = duracionDeLlenado;
             //progressBar1.Value = 0;
 
-            
+
             //for (int i = 0; i <= duracionDeLlenado; i++)
             //{
             //    await Task.Delay(50); 
@@ -81,7 +81,7 @@ namespace Project_Gas_Station.GUI
 
         private void comboBoxSeleccionarBomba_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch(comboBoxSeleccionarBomba.SelectedIndex)
+            switch (comboBoxSeleccionarBomba.SelectedIndex)
             {
                 case 0:
                     panelBomba1.Enabled = true;
@@ -110,6 +110,18 @@ namespace Project_Gas_Station.GUI
                 default:
                     MessageBox.Show("Selecciona la Bomba a habilitar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
+            }
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox5.SelectedIndex == 0)
+            {
+                dateTimePicker1.Enabled = true;
+            }
+            else
+            {
+                dateTimePicker1.Enabled = false;
             }
         }
     }

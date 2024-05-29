@@ -61,6 +61,10 @@
             label1 = new Label();
             tabPageEstadisticas = new TabPage();
             dataGridView1 = new DataGridView();
+            label8 = new Label();
+            comboBox5 = new ComboBox();
+            buttonFiltrar = new Button();
+            dateTimePicker1 = new DateTimePicker();
             tabControl1.SuspendLayout();
             tabPageDispensar.SuspendLayout();
             panelBomba4.SuspendLayout();
@@ -404,6 +408,10 @@
             // 
             // tabPageEstadisticas
             // 
+            tabPageEstadisticas.Controls.Add(dateTimePicker1);
+            tabPageEstadisticas.Controls.Add(buttonFiltrar);
+            tabPageEstadisticas.Controls.Add(comboBox5);
+            tabPageEstadisticas.Controls.Add(label8);
             tabPageEstadisticas.Controls.Add(dataGridView1);
             tabPageEstadisticas.Location = new Point(4, 24);
             tabPageEstadisticas.Margin = new Padding(2);
@@ -422,6 +430,41 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1046, 478);
             dataGridView1.TabIndex = 0;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(32, 29);
+            label8.Name = "label8";
+            label8.Size = new Size(41, 15);
+            label8.TabIndex = 1;
+            label8.Text = "Filtrar:";
+            // 
+            // comboBox5
+            // 
+            comboBox5.FormattingEnabled = true;
+            comboBox5.Items.AddRange(new object[] { "Abastecimientos por Fecha", "Abastecimientos Prepago", "Abastecimientos Tanque Lleno", "Bombas por Uso" });
+            comboBox5.Location = new Point(79, 26);
+            comboBox5.Name = "comboBox5";
+            comboBox5.Size = new Size(200, 23);
+            comboBox5.TabIndex = 2;
+            comboBox5.SelectedIndexChanged += comboBox5_SelectedIndexChanged;
+            // 
+            // buttonFiltrar
+            // 
+            buttonFiltrar.Location = new Point(315, 26);
+            buttonFiltrar.Name = "buttonFiltrar";
+            buttonFiltrar.Size = new Size(75, 23);
+            buttonFiltrar.TabIndex = 3;
+            buttonFiltrar.Text = "Filtrar";
+            buttonFiltrar.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(79, 72);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 21);
+            dateTimePicker1.TabIndex = 4;
             // 
             // AdminForm
             // 
@@ -448,6 +491,7 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabPageEstadisticas.ResumeLayout(false);
+            tabPageEstadisticas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -487,5 +531,9 @@
         private Label label6;
         private ComboBox comboBox2;
         private Label label5;
+        private DateTimePicker dateTimePicker1;
+        private Button buttonFiltrar;
+        private ComboBox comboBox5;
+        private Label label8;
     }
 }
