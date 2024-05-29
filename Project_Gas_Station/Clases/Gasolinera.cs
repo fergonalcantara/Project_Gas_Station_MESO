@@ -11,10 +11,10 @@ namespace Project_Gas_Station.Clases
     {
         public List<Bomba> Bombas { get; set; } = new List<Bomba>();
         public List<Abastecimiento> Abastecimientos { get; set; } = new List<Abastecimiento>();
+        public int PrecioPorLitro { get; set; }
 
         public Gasolinera()
         {
-            //Inicializamos las bombas a trabajar (actualmente parece que solo sera 1)
             for (int i = 0; i < 4; i++)
             {
                 Bombas.Add(new Bomba(i + 1));

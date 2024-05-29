@@ -19,7 +19,7 @@ namespace Project_Gas_Station.Clases
         public DateTime FechaHora { get => fechaHora; set => fechaHora = value; }
         public double Cantidad { get => cantidad; set => cantidad = value; }
         public double PrecioPorLitro { get => precioPorLitro; set => precioPorLitro = value; }
-        public string EsPrepago { get => tipoDespacho; set => tipoDespacho = value; }
+        public string TipoDespacho { get => tipoDespacho; set => tipoDespacho = value; }
         public string NombreCliente { get => nombreCliente; set => nombreCliente = value; }
 
         public Abastecimiento(int idBomba, double cantidad, double precioPorLitro, string tipoDespacho, string nombreCliente)
@@ -28,7 +28,7 @@ namespace Project_Gas_Station.Clases
             this.FechaHora = DateTime.Now;
             this.Cantidad = cantidad;
             this.PrecioPorLitro = precioPorLitro;
-            this.EsPrepago = tipoDespacho;
+            this.TipoDespacho = tipoDespacho;
             this.NombreCliente = nombreCliente;
         }
     }

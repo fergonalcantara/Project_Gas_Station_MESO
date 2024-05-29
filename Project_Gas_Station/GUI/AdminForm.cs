@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project_Gas_Station.ArduinoComunication;
+using Project_Gas_Station.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,25 @@ namespace Project_Gas_Station.GUI
 {
     public partial class AdminForm : Form
     {
+        private Gasolinera totoGas;
+        private ControladorSerial controladorBomba;
         public AdminForm()
         {
             InitializeComponent();
+            InicializarControlBomba();
+            this.totoGas = new Gasolinera();
+        }
+
+        private void InicializarControlBomba()
+        {
+            try
+            {
+                controladorBomba = new ControladorSerial("COM7", 9600); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al abrir el puerto serial: {ex.Message}");
+            }
         }
 
         private async void buttonDispensarBomba1_Click(object sender, EventArgs e)
@@ -33,8 +51,55 @@ namespace Project_Gas_Station.GUI
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            controladorBomba.Dispose();
             FormMenuPrincipal principal = new FormMenuPrincipal();
             principal.Show();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 1)
+            {
+                textBox1.Enabled = false;
+            }
+            else
+            {
+                textBox1.Enabled = true;
+            }
+        }
+
+        private void comboBoxSeleccionarBomba_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(comboBoxSeleccionarBomba.SelectedIndex)
+            {
+                case 0:
+                    panelBomba1.Enabled = true;
+                    panelBomba2.Enabled = false;
+                    panelBomba3.Enabled = false;
+                    panelBomba4.Enabled = false;
+                    break;
+                case 1:
+                    panelBomba1.Enabled = false;
+                    panelBomba2.Enabled = true;
+                    panelBomba3.Enabled = false;
+                    panelBomba4.Enabled = false;
+                    break;
+                case 2:
+                    panelBomba1.Enabled = false;
+                    panelBomba2.Enabled = false;
+                    panelBomba3.Enabled = true;
+                    panelBomba4.Enabled = false;
+                    break;
+                case 3:
+                    panelBomba1.Enabled = false;
+                    panelBomba2.Enabled = false;
+                    panelBomba3.Enabled = false;
+                    panelBomba4.Enabled = true;
+                    break;
+                default:
+                    MessageBox.Show("Selecciona la Bomba a habilitar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
         }
     }
 }
