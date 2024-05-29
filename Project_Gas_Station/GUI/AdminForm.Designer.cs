@@ -34,17 +34,17 @@
             panelBomba4 = new Panel();
             comboBox4 = new ComboBox();
             label7 = new Label();
-            button4 = new Button();
+            buttonDispensarBomba4 = new Button();
             textBox4 = new TextBox();
             panelBomba3 = new Panel();
             comboBox3 = new ComboBox();
             label6 = new Label();
-            button3 = new Button();
+            buttonDispensarBomba3 = new Button();
             textBox3 = new TextBox();
             panelBomba2 = new Panel();
             comboBox2 = new ComboBox();
             label5 = new Label();
-            button2 = new Button();
+            buttonDispensarBomba2 = new Button();
             textBox2 = new TextBox();
             panelBomba1 = new Panel();
             comboBox1 = new ComboBox();
@@ -54,17 +54,17 @@
             panel1 = new Panel();
             label4 = new Label();
             comboBoxSeleccionarBomba = new ComboBox();
-            textBox5 = new TextBox();
+            textBoxNombreCliente = new TextBox();
             label3 = new Label();
             textBoxPrecioDelDia = new TextBox();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             tabPageEstadisticas = new TabPage();
-            dataGridView1 = new DataGridView();
-            label8 = new Label();
-            comboBox5 = new ComboBox();
-            buttonFiltrar = new Button();
             dateTimePicker1 = new DateTimePicker();
+            buttonFiltrar = new Button();
+            comboBox5 = new ComboBox();
+            label8 = new Label();
+            dataGridView1 = new DataGridView();
             tabControl1.SuspendLayout();
             tabPageDispensar.SuspendLayout();
             panelBomba4.SuspendLayout();
@@ -118,7 +118,7 @@
             panelBomba4.BorderStyle = BorderStyle.FixedSingle;
             panelBomba4.Controls.Add(comboBox4);
             panelBomba4.Controls.Add(label7);
-            panelBomba4.Controls.Add(button4);
+            panelBomba4.Controls.Add(buttonDispensarBomba4);
             panelBomba4.Controls.Add(textBox4);
             panelBomba4.Location = new Point(792, 108);
             panelBomba4.Margin = new Padding(2);
@@ -145,15 +145,16 @@
             label7.TabIndex = 6;
             label7.Text = "Seleccione su tipo de Despacho:";
             // 
-            // button4
+            // buttonDispensarBomba4
             // 
-            button4.Location = new Point(78, 222);
-            button4.Margin = new Padding(2);
-            button4.Name = "button4";
-            button4.Size = new Size(97, 38);
-            button4.TabIndex = 3;
-            button4.Text = "Dispensar";
-            button4.UseVisualStyleBackColor = true;
+            buttonDispensarBomba4.Location = new Point(78, 222);
+            buttonDispensarBomba4.Margin = new Padding(2);
+            buttonDispensarBomba4.Name = "buttonDispensarBomba4";
+            buttonDispensarBomba4.Size = new Size(97, 38);
+            buttonDispensarBomba4.TabIndex = 3;
+            buttonDispensarBomba4.Text = "Dispensar";
+            buttonDispensarBomba4.UseVisualStyleBackColor = true;
+            buttonDispensarBomba4.Click += buttonDispensarBomba4_Click;
             // 
             // textBox4
             // 
@@ -169,7 +170,7 @@
             panelBomba3.BorderStyle = BorderStyle.FixedSingle;
             panelBomba3.Controls.Add(comboBox3);
             panelBomba3.Controls.Add(label6);
-            panelBomba3.Controls.Add(button3);
+            panelBomba3.Controls.Add(buttonDispensarBomba3);
             panelBomba3.Controls.Add(textBox3);
             panelBomba3.Location = new Point(531, 108);
             panelBomba3.Margin = new Padding(2);
@@ -196,15 +197,16 @@
             label6.TabIndex = 6;
             label6.Text = "Seleccione su tipo de Despacho:";
             // 
-            // button3
+            // buttonDispensarBomba3
             // 
-            button3.Location = new Point(83, 222);
-            button3.Margin = new Padding(2);
-            button3.Name = "button3";
-            button3.Size = new Size(92, 38);
-            button3.TabIndex = 3;
-            button3.Text = "Dispensar";
-            button3.UseVisualStyleBackColor = true;
+            buttonDispensarBomba3.Location = new Point(83, 222);
+            buttonDispensarBomba3.Margin = new Padding(2);
+            buttonDispensarBomba3.Name = "buttonDispensarBomba3";
+            buttonDispensarBomba3.Size = new Size(92, 38);
+            buttonDispensarBomba3.TabIndex = 3;
+            buttonDispensarBomba3.Text = "Dispensar";
+            buttonDispensarBomba3.UseVisualStyleBackColor = true;
+            buttonDispensarBomba3.Click += buttonDispensarBomba3_Click;
             // 
             // textBox3
             // 
@@ -220,7 +222,7 @@
             panelBomba2.BorderStyle = BorderStyle.FixedSingle;
             panelBomba2.Controls.Add(comboBox2);
             panelBomba2.Controls.Add(label5);
-            panelBomba2.Controls.Add(button2);
+            panelBomba2.Controls.Add(buttonDispensarBomba2);
             panelBomba2.Controls.Add(textBox2);
             panelBomba2.Location = new Point(268, 108);
             panelBomba2.Margin = new Padding(2);
@@ -247,15 +249,16 @@
             label5.TabIndex = 6;
             label5.Text = "Seleccione su tipo de Despacho:";
             // 
-            // button2
+            // buttonDispensarBomba2
             // 
-            button2.Location = new Point(83, 222);
-            button2.Margin = new Padding(2);
-            button2.Name = "button2";
-            button2.Size = new Size(101, 38);
-            button2.TabIndex = 1;
-            button2.Text = "Dispensar";
-            button2.UseVisualStyleBackColor = true;
+            buttonDispensarBomba2.Location = new Point(83, 222);
+            buttonDispensarBomba2.Margin = new Padding(2);
+            buttonDispensarBomba2.Name = "buttonDispensarBomba2";
+            buttonDispensarBomba2.Size = new Size(101, 38);
+            buttonDispensarBomba2.TabIndex = 1;
+            buttonDispensarBomba2.Text = "Dispensar";
+            buttonDispensarBomba2.UseVisualStyleBackColor = true;
+            buttonDispensarBomba2.Click += buttonDispensarBomba2_Click;
             // 
             // textBox2
             // 
@@ -325,7 +328,7 @@
             panel1.BackColor = Color.Brown;
             panel1.Controls.Add(label4);
             panel1.Controls.Add(comboBoxSeleccionarBomba);
-            panel1.Controls.Add(textBox5);
+            panel1.Controls.Add(textBoxNombreCliente);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(textBoxPrecioDelDia);
             panel1.Controls.Add(pictureBox1);
@@ -357,12 +360,12 @@
             comboBoxSeleccionarBomba.TabIndex = 5;
             comboBoxSeleccionarBomba.SelectedIndexChanged += comboBoxSeleccionarBomba_SelectedIndexChanged;
             // 
-            // textBox5
+            // textBoxNombreCliente
             // 
-            textBox5.Location = new Point(408, 46);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(230, 21);
-            textBox5.TabIndex = 4;
+            textBoxNombreCliente.Location = new Point(408, 46);
+            textBoxNombreCliente.Name = "textBoxNombreCliente";
+            textBoxNombreCliente.Size = new Size(230, 21);
+            textBoxNombreCliente.TabIndex = 4;
             // 
             // label3
             // 
@@ -422,23 +425,21 @@
             tabPageEstadisticas.Text = "Estadisticas";
             tabPageEstadisticas.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dateTimePicker1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 143);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1046, 478);
-            dataGridView1.TabIndex = 0;
+            dateTimePicker1.Location = new Point(79, 72);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 21);
+            dateTimePicker1.TabIndex = 4;
             // 
-            // label8
+            // buttonFiltrar
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(32, 29);
-            label8.Name = "label8";
-            label8.Size = new Size(41, 15);
-            label8.TabIndex = 1;
-            label8.Text = "Filtrar:";
+            buttonFiltrar.Location = new Point(315, 26);
+            buttonFiltrar.Name = "buttonFiltrar";
+            buttonFiltrar.Size = new Size(75, 23);
+            buttonFiltrar.TabIndex = 3;
+            buttonFiltrar.Text = "Filtrar";
+            buttonFiltrar.UseVisualStyleBackColor = true;
             // 
             // comboBox5
             // 
@@ -450,21 +451,23 @@
             comboBox5.TabIndex = 2;
             comboBox5.SelectedIndexChanged += comboBox5_SelectedIndexChanged;
             // 
-            // buttonFiltrar
+            // label8
             // 
-            buttonFiltrar.Location = new Point(315, 26);
-            buttonFiltrar.Name = "buttonFiltrar";
-            buttonFiltrar.Size = new Size(75, 23);
-            buttonFiltrar.TabIndex = 3;
-            buttonFiltrar.Text = "Filtrar";
-            buttonFiltrar.UseVisualStyleBackColor = true;
+            label8.AutoSize = true;
+            label8.Location = new Point(32, 29);
+            label8.Name = "label8";
+            label8.Size = new Size(41, 15);
+            label8.TabIndex = 1;
+            label8.Text = "Filtrar:";
             // 
-            // dateTimePicker1
+            // dataGridView1
             // 
-            dateTimePicker1.Location = new Point(79, 72);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 21);
-            dateTimePicker1.TabIndex = 4;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(3, 143);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(1046, 478);
+            dataGridView1.TabIndex = 0;
             // 
             // AdminForm
             // 
@@ -508,11 +511,11 @@
         private TextBox textBoxCantidadBomba1;
         private Panel panel1;
         private TabPage tabPageEstadisticas;
-        private Button button4;
+        private Button buttonDispensarBomba4;
         private TextBox textBox4;
-        private Button button3;
+        private Button buttonDispensarBomba3;
         private TextBox textBox3;
-        private Button button2;
+        private Button buttonDispensarBomba2;
         private Button buttonDispensarBomba1;
         private ProgressBar progressBar1;
         private DataGridView dataGridView1;
@@ -524,7 +527,7 @@
         private Label label3;
         private Label label4;
         private ComboBox comboBoxSeleccionarBomba;
-        private TextBox textBox5;
+        private TextBox textBoxNombreCliente;
         private ComboBox comboBox4;
         private Label label7;
         private ComboBox comboBox3;

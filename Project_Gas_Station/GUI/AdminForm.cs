@@ -21,6 +21,7 @@ namespace Project_Gas_Station.GUI
         {
             InitializeComponent();
             InicializarControlBomba();
+            LeerArchivo();
             this.totoGas = new Gasolinera();
         }
 
@@ -38,6 +39,7 @@ namespace Project_Gas_Station.GUI
 
         private void buttonDispensarBomba1_Click(object sender, EventArgs e)
         {
+            int idBomba = 1;
             double cantidadLitros = Convert.ToDouble(textBoxCantidadBomba1.Text) / Convert.ToDouble(textBoxPrecioDelDia.Text);
             double precioDelDia = Convert.ToDouble(textBoxPrecioDelDia.Text);
             MessageBox.Show(Convert.ToString(cantidadLitros));
@@ -48,6 +50,7 @@ namespace Project_Gas_Station.GUI
             controladorBomba.SendCommand("ON", duracionDeLlenado);
 
 
+            totoGas.Abastecimientos.Add(totoGas.Bombas[0], cantidadLitros, precioDelDia, comboBox1.Text,);
             //progressBar1.Minimum = 0;
             //progressBar1.Maximum = duracionDeLlenado;
             //progressBar1.Value = 0;
@@ -58,6 +61,22 @@ namespace Project_Gas_Station.GUI
             //    await Task.Delay(50); 
             //    progressBar1.Value = i;
             //}
+        }
+
+        private void buttonDispensarBomba2_Click(object sender, EventArgs e)
+        {
+            int idBomba = 2;
+
+        }
+
+        private void buttonDispensarBomba3_Click(object sender, EventArgs e)
+        {
+            int idBomba = 3;
+        }
+
+        private void buttonDispensarBomba4_Click(object sender, EventArgs e)
+        {
+            int idBomba = 4;
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -115,7 +134,7 @@ namespace Project_Gas_Station.GUI
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox5.SelectedIndex == 0)
+            if (comboBox5.SelectedIndex == 0)
             {
                 dateTimePicker1.Enabled = true;
             }
@@ -124,5 +143,52 @@ namespace Project_Gas_Station.GUI
                 dateTimePicker1.Enabled = false;
             }
         }
+
+        private void LeerArchivo()
+        {
+            string nombrearchivo = "abastecimientos.txt";
+            FileStream archivo = new FileStream(nombrearchivo, FileMode.OpenOrCreate, FileAccess.Read);
+            StreamReader LeerArchivo = new StreamReader(archivo);
+
+            string linea;
+            totoGas.Abastecimientos.Clear();
+            while ((linea = LeerArchivo.ReadLine()) != null)
+            {
+                string[] cadena = linea.Split(';');
+                int cont = 0;
+                Abastecimiento p = new Abastecimiento();
+
+                foreach (string subcadena in cadena)
+                {
+                    if (cont == 0) { p.IdBomba = Convert.ToInt32(subcadena); }
+                    if (cont == 1) { p.FechaHora = Convert.ToDateTime(subcadena); }
+                    if (cont == 2) { p.Cantidad = Convert.ToDouble(subcadena); }
+                    if (cont == 3) { p.PrecioPorLitro = Convert.ToDouble(subcadena); }
+                    if (cont == 4) { p.TipoDespacho = subcadena; }
+                    if (cont == 5) { p.NombreCliente = subcadena; }
+                    cont++;
+                }
+                totoGas.Abastecimientos.Add(p);
+            }
+            LeerArchivo.Close();
+            //CargarPersonas(); 
+        }
+
+        private void ActualizarArchivo()
+        {
+            string nombrearchivo = "abastecimientos.txt";
+
+            FileStream archivo = new FileStream(nombrearchivo, FileMode.Create, FileAccess.Write);
+            StreamWriter EscribirArchivo = new StreamWriter(archivo);
+
+            foreach (Abastecimiento abastecimiento in totoGas.Abastecimientos)// 
+            {
+                string linea = abastecimiento.IdBomba + ";" + abastecimiento.FechaHora + ";" + abastecimiento.Cantidad + ";" + abastecimiento.PrecioPorLitro + ";" + abastecimiento.TipoDespacho + ";" + abastecimiento.NombreCliente + ";";
+                EscribirArchivo.WriteLine(linea);
+            }
+            EscribirArchivo.Close();
+        }
+
+        
     }
 }

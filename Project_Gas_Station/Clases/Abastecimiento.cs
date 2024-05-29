@@ -22,14 +22,23 @@ namespace Project_Gas_Station.Clases
         public string TipoDespacho { get => tipoDespacho; set => tipoDespacho = value; }
         public string NombreCliente { get => nombreCliente; set => nombreCliente = value; }
 
-        public Abastecimiento(int idBomba, double cantidad, double precioPorLitro, string tipoDespacho, string nombreCliente)
+        public Abastecimiento(int idBomba, DateTime hora, double cantidad, double precioPorLitro, string tipoDespacho, string nombreCliente)
         {
             this.IdBomba = idBomba;
-            this.FechaHora = DateTime.Now;
+            this.FechaHora = hora;
             this.Cantidad = cantidad;
             this.PrecioPorLitro = precioPorLitro;
             this.TipoDespacho = tipoDespacho;
             this.NombreCliente = nombreCliente;
+        }
+
+        public Abastecimiento() 
+        {
+            IdBomba = 0;
+            Cantidad = 0;
+            PrecioPorLitro = 0;
+            TipoDespacho = string.Empty;
+            NombreCliente = string.Empty;
         }
     }
 }
