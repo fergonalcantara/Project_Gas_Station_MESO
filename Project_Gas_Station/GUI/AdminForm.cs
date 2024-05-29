@@ -24,7 +24,7 @@ namespace Project_Gas_Station.GUI
             InitializeComponent();
             InicializarControlBomba();
             this.totoGas = new Gasolinera();
-            LeerArchivo();
+            totoGas.LeerArchivo();
         }
 
         private void InicializarControlBomba()
@@ -50,12 +50,7 @@ namespace Project_Gas_Station.GUI
 
             MessageBox.Show(Convert.ToString(cantidadLitros));
 
-            string nombreArchivo = "abastecimientos.txt"; 
-            FileStream archivo = new FileStream(nombreArchivo, FileMode.Append, FileAccess.Write); 
-            StreamWriter EscribirArchivo = new StreamWriter(archivo);
-            string linea = idBomba + ";" + fechaHora + ";" + cantidadLitros + ";" + precioDelDia + ";" + tipoDespacho + ";" + nombreCliente;
-            EscribirArchivo.WriteLine(linea);
-            EscribirArchivo.Close();
+            totoGas.EscribirArchivo(idBomba,fechaHora,cantidadLitros,precioDelDia,tipoDespacho,nombreCliente);
 
             double tiempoEnMinutos = cantidadLitros / litroPorMinuto;
             int duracionDeLlenado = (int)(tiempoEnMinutos * 60 * 1000);
@@ -156,52 +151,5 @@ namespace Project_Gas_Station.GUI
                 dateTimePicker1.Enabled = false;
             }
         }
-
-        private void LeerArchivo()
-        {
-            string nombrearchivo = "abastecimientos.txt";
-            FileStream archivo = new FileStream(nombrearchivo, FileMode.OpenOrCreate, FileAccess.Read);
-            StreamReader LeerArchivo = new StreamReader(archivo);
-
-            string linea;
-            totoGas.Abastecimientos.Clear();
-            while ((linea = LeerArchivo.ReadLine()) != null)
-            {
-                string[] cadena = linea.Split(';');
-                int cont = 0;
-                Abastecimiento p = new Abastecimiento();
-
-                foreach (string subcadena in cadena)
-                {
-                    if (cont == 0) { p.IdBomba = Convert.ToInt32(subcadena); }
-                    if (cont == 1) { p.FechaHora = Convert.ToDateTime(subcadena); }
-                    if (cont == 2) { p.Cantidad = Convert.ToDouble(subcadena); }
-                    if (cont == 3) { p.PrecioPorLitro = Convert.ToDouble(subcadena); }
-                    if (cont == 4) { p.TipoDespacho = subcadena; }
-                    if (cont == 5) { p.NombreCliente = subcadena; }
-                    cont++;
-                }
-                totoGas.Abastecimientos.Add(p);
-            }
-            LeerArchivo.Close();
-            //CargarPersonas(); 
-        }
-
-        private void ActualizarArchivo()
-        {
-            string nombrearchivo = "abastecimientos.txt";
-
-            FileStream archivo = new FileStream(nombrearchivo, FileMode.Create, FileAccess.Write);
-            StreamWriter EscribirArchivo = new StreamWriter(archivo);
-
-            foreach (Abastecimiento abastecimiento in totoGas.Abastecimientos)// 
-            {
-                string linea = abastecimiento.IdBomba + ";" + abastecimiento.FechaHora + ";" + abastecimiento.Cantidad + ";" + abastecimiento.PrecioPorLitro + ";" + abastecimiento.TipoDespacho + ";" + abastecimiento.NombreCliente + ";";
-                EscribirArchivo.WriteLine(linea);
-            }
-            EscribirArchivo.Close();
-        }
-
-        
     }
 }
