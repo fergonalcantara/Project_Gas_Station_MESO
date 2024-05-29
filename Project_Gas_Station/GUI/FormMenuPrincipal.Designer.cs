@@ -172,7 +172,7 @@
             Margin = new Padding(3, 4, 3, 4);
             MinimumSize = new Size(777, 667);
             Name = "FormMenuPrincipal";
-            Text = "Menu Principal";
+            Text = "   ";
             panelContenedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
