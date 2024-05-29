@@ -21,5 +21,20 @@ namespace Project_Gas_Station.Clases
             }
             this.PrecioPorLitro = 0.0;
         }
+
+        public void IniciarAbastecimiento(int idBomba, double cantidad, bool esPrepago)
+        {
+
+        }
+
+        public void DetenerAbastecimiento(int idBomba)
+        {
+
+        }
+
+        public void RegistrarTransaccion(Abastecimiento abastecimiento)
+        {
+            Abastecimientos.Add(abastecimiento);
+        }
     }
 }
