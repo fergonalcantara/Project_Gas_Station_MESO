@@ -16,6 +16,7 @@ namespace Project_Gas_Station.GUI
     {
         private Gasolinera totoGas;
         private ControladorSerial controladorBomba;
+        public const double litroPorMinuto = 120.00;
         public AdminForm()
         {
             InitializeComponent();
@@ -35,18 +36,28 @@ namespace Project_Gas_Station.GUI
             }
         }
 
-        private async void buttonDispensarBomba1_Click(object sender, EventArgs e)
+        private void buttonDispensarBomba1_Click(object sender, EventArgs e)
         {
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = 100;
-            progressBar1.Value = 0;
+            double cantidadLitros = Convert.ToDouble(textBoxCantidadBomba1.Text) / Convert.ToDouble(textBoxPrecioDelDia.Text);
+            double precioDelDia = Convert.ToDouble(textBoxPrecioDelDia.Text);
+            MessageBox.Show(Convert.ToString(cantidadLitros));
 
-            // Simulación de una tarea que lleva tiempo
-            for (int i = 0; i <= 100; i++)
-            {
-                await Task.Delay(50); // Simula una tarea asíncrona
-                progressBar1.Value = i;
-            }
+            double tiempoEnMinutos = cantidadLitros / litroPorMinuto;
+            int duracionDeLlenado = (int)(tiempoEnMinutos * 60 * 1000);
+            MessageBox.Show(Convert.ToString(duracionDeLlenado));
+            controladorBomba.SendCommand("ON", duracionDeLlenado);
+
+
+            //progressBar1.Minimum = 0;
+            //progressBar1.Maximum = duracionDeLlenado;
+            //progressBar1.Value = 0;
+
+            
+            //for (int i = 0; i <= duracionDeLlenado; i++)
+            //{
+            //    await Task.Delay(50); 
+            //    progressBar1.Value = i;
+            //}
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -60,11 +71,11 @@ namespace Project_Gas_Station.GUI
         {
             if (comboBox1.SelectedIndex == 1)
             {
-                textBox1.Enabled = false;
+                textBoxCantidadBomba1.Enabled = false;
             }
             else
             {
-                textBox1.Enabled = true;
+                textBoxCantidadBomba1.Enabled = true;
             }
         }
 

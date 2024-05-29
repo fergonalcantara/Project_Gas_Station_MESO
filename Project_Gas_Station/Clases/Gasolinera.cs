@@ -11,7 +11,7 @@ namespace Project_Gas_Station.Clases
     {
         public List<Bomba> Bombas { get; set; } = new List<Bomba>();
         public List<Abastecimiento> Abastecimientos { get; set; } = new List<Abastecimiento>();
-        public int PrecioPorLitro { get; set; }
+        public double PrecioPorLitro { get; set; }
 
         public Gasolinera()
         {
@@ -19,6 +19,7 @@ namespace Project_Gas_Station.Clases
             {
                 Bombas.Add(new Bomba(i + 1));
             }
+            this.PrecioPorLitro = 0.0;
         }
 
         public void IniciarAbastecimiento(int idBomba, double cantidad, bool esPrepago)

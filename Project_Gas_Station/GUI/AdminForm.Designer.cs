@@ -50,7 +50,7 @@
             comboBox1 = new ComboBox();
             label2 = new Label();
             buttonDispensarBomba1 = new Button();
-            textBox1 = new TextBox();
+            textBoxCantidadBomba1 = new TextBox();
             panel1 = new Panel();
             label4 = new Label();
             comboBoxSeleccionarBomba = new ComboBox();
@@ -268,7 +268,7 @@
             panelBomba1.Controls.Add(comboBox1);
             panelBomba1.Controls.Add(label2);
             panelBomba1.Controls.Add(buttonDispensarBomba1);
-            panelBomba1.Controls.Add(textBox1);
+            panelBomba1.Controls.Add(textBoxCantidadBomba1);
             panelBomba1.Location = new Point(4, 108);
             panelBomba1.Margin = new Padding(2);
             panelBomba1.Name = "panelBomba1";
@@ -306,15 +306,15 @@
             buttonDispensarBomba1.UseVisualStyleBackColor = true;
             buttonDispensarBomba1.Click += buttonDispensarBomba1_Click;
             // 
-            // textBox1
+            // textBoxCantidadBomba1
             // 
-            textBox1.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(38, 131);
-            textBox1.Margin = new Padding(2);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(182, 51);
-            textBox1.TabIndex = 0;
+            textBoxCantidadBomba1.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxCantidadBomba1.Location = new Point(38, 131);
+            textBoxCantidadBomba1.Margin = new Padding(2);
+            textBoxCantidadBomba1.Multiline = true;
+            textBoxCantidadBomba1.Name = "textBoxCantidadBomba1";
+            textBoxCantidadBomba1.Size = new Size(182, 51);
+            textBoxCantidadBomba1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -461,7 +461,7 @@
         private Panel panelBomba2;
         private TextBox textBox2;
         private Panel panelBomba1;
-        private TextBox textBox1;
+        private TextBox textBoxCantidadBomba1;
         private Panel panel1;
         private TabPage tabPageEstadisticas;
         private Button button4;
