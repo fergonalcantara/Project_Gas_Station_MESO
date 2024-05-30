@@ -19,85 +19,64 @@ namespace Project_Gas_Station.GUI
         private Gasolinera totoGas;
         private ControladorSerial controladorBombas;
         public const double litroPorMinuto = 2.00;
-        private int duration;
-        private int elapsed;
+
         public AdminForm()
         {
             InitializeComponent();
             this.totoGas = new Gasolinera();
             totoGas.LeerArchivo();
-            this.controladorBombas = new ControladorSerial();
+            //this.controladorBombas = new ControladorSerial();
             CargarDatos();
+        }
 
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = 100;
-            progressBar1.Value = 0;
+        private void DispensarCombustible(TextBox textBoxCantidad, ComboBox comboBoxTipoDespacho, int indiceBomba)
+        {
+            int idBomba = indiceBomba;
+            string fechaHora = DateTime.Now.ToString("dd / MM / yyyy");
+            double cantidadLitros = Math.Round(Convert.ToDouble(textBoxCantidad.Text) / Convert.ToDouble(textBoxPrecioDelDia.Text), 2);
+            double precioDelDia = Convert.ToDouble(textBoxPrecioDelDia.Text);
+            string tipoDespacho = Convert.ToString(comboBoxTipoDespacho.Text);
+            string nombreCliente = textBoxNombreCliente.Text;
 
-            timer1.Interval = 100; 
-            timer1.Tick += timer1_Tick;
+            Abastecimiento abastecimiento = new Abastecimiento(idBomba, fechaHora, cantidadLitros, precioDelDia, tipoDespacho, nombreCliente);
+            totoGas.RegistrarTransaccion(abastecimiento);
+            totoGas.EscribirArchivo(idBomba, fechaHora, cantidadLitros, precioDelDia, tipoDespacho, nombreCliente);
+
+            double tiempoEnMinutos = cantidadLitros / litroPorMinuto;
+            int duracionDeLlenado = (int)(tiempoEnMinutos * 60 * 1000);
+            MessageBox.Show(Convert.ToString(duracionDeLlenado));
+            //controladorBombas.SendCommand(Convert.ToString(idBomba), tipoDespacho, "ON", duracionDeLlenado);
+
+            textBoxCantidad.Text = string.Empty;
+            comboBoxTipoDespacho.Text = string.Empty;
+            textBoxNombreCliente.Text = string.Empty;
+
+            CargarDatos();
         }
 
         private void buttonDispensarBomba1_Click(object sender, EventArgs e)
         {
-            int idBomba = totoGas.Bombas[comboBoxSeleccionarBomba.SelectedIndex].Id;
-            string fechaHora = DateTime.Now.ToString("dd / MM / yyyy");
-            double cantidadLitros = Math.Round(Convert.ToDouble(textBoxCantidadBomba1.Text) / Convert.ToDouble(textBoxPrecioDelDia.Text), 2);
-            double precioDelDia = Convert.ToDouble(textBoxPrecioDelDia.Text);
-            string tipoDespacho = Convert.ToString(comboBoxTipoDespachoBomba1.Text);
-            string nombreCliente = textBoxNombreCliente.Text;
-
-            Abastecimiento abastecimiento = new Abastecimiento(idBomba, fechaHora, cantidadLitros, precioDelDia, tipoDespacho, nombreCliente);
-            totoGas.RegistrarTransaccion(abastecimiento);
-            totoGas.EscribirArchivo(idBomba, fechaHora, cantidadLitros, precioDelDia, tipoDespacho, nombreCliente);
-
-            double tiempoEnMinutos = cantidadLitros / litroPorMinuto;
-            int duracionDeLlenado = (int)(tiempoEnMinutos * 60 * 1000);
-            controladorBombas.SendCommand(Convert.ToString(idBomba), tipoDespacho, "ON", duracionDeLlenado);
-
-            textBoxCantidadBomba1.Text = string.Empty;
-            comboBoxTipoDespachoBomba1.Text = string.Empty;
-            textBoxNombreCliente.Text = string.Empty;
-
-            CargarDatos();
+            DispensarCombustible(textBoxCantidadBomba1, comboBoxTipoDespachoBomba1, 1);
         }
 
         private void buttonDispensarBomba2_Click(object sender, EventArgs e)
         {
-            int idBomba = totoGas.Bombas[comboBoxSeleccionarBomba.SelectedIndex].Id;
-            string fechaHora = DateTime.Now.ToString("dd / MM / yyyy");
-            double cantidadLitros = Math.Round(Convert.ToDouble(textBoxCantidadBomba2.Text) / Convert.ToDouble(textBoxPrecioDelDia.Text), 2);
-            double precioDelDia = Convert.ToDouble(textBoxPrecioDelDia.Text);
-            string tipoDespacho = Convert.ToString(comboBoxTipoDespachoBomba2.Text);
-            string nombreCliente = textBoxNombreCliente.Text;
-
-            Abastecimiento abastecimiento = new Abastecimiento(idBomba, fechaHora, cantidadLitros, precioDelDia, tipoDespacho, nombreCliente);
-            totoGas.RegistrarTransaccion(abastecimiento);
-            totoGas.EscribirArchivo(idBomba, fechaHora, cantidadLitros, precioDelDia, tipoDespacho, nombreCliente);
-
-            double tiempoEnMinutos = cantidadLitros / litroPorMinuto;
-            int duracionDeLlenado = (int)(tiempoEnMinutos * 60 * 1000);
-            controladorBombas.SendCommand(Convert.ToString(idBomba), tipoDespacho, "ON", duracionDeLlenado);
-
-            textBoxCantidadBomba2.Text = string.Empty;
-            comboBoxTipoDespachoBomba2.Text = string.Empty;
-            textBoxNombreCliente.Text = string.Empty;
-
-            CargarDatos();
+            DispensarCombustible(textBoxCantidadBomba2, comboBoxTipoDespachoBomba2, 2);
         }
 
         private void buttonDispensarBomba3_Click(object sender, EventArgs e)
         {
-            int idBomba = totoGas.Bombas[2].Id;
+            DispensarCombustible(textBoxCantidadBomba3, comboBoxTipoDespachoBomba3, 3);
         }
 
         private void buttonDispensarBomba4_Click(object sender, EventArgs e)
         {
-            int idBomba = totoGas.Bombas[3].Id;
+            DispensarCombustible(textBoxCantidadBomba4, comboBoxTipoDespachoBomba4, 4);
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            controladorBombas.Dispose();
+            //controladorBombas.Dispose();
             FormMenuPrincipal principal = new FormMenuPrincipal();
             principal.Show();
         }
@@ -186,28 +165,27 @@ namespace Project_Gas_Station.GUI
                     }
                     break;
                 case 1:
+                    dataGridView1.Rows.Clear();
+                    foreach (Abastecimiento abastecimiento in totoGas.Abastecimientos)
+                    {
+                        if (abastecimiento.TipoDespacho.Equals("Cantidad"))
+                        {
+                            dataGridView1.Rows.Add([abastecimiento.IdBomba, abastecimiento.Fecha, abastecimiento.Cantidad, abastecimiento.PrecioPorLitro, abastecimiento.TipoDespacho, abastecimiento.NombreCliente]);
+                        }
+                    }
                     break;
                 case 2:
+                    dataGridView1.Rows.Clear();
+                    foreach (Abastecimiento abastecimiento in totoGas.Abastecimientos)
+                    {
+                        if (abastecimiento.TipoDespacho.Equals("Tanque Lleno"))
+                        {
+                            dataGridView1.Rows.Add([abastecimiento.IdBomba, abastecimiento.Fecha, abastecimiento.Cantidad, abastecimiento.PrecioPorLitro, abastecimiento.TipoDespacho, abastecimiento.NombreCliente]);
+                        }
+                    }
                     break;
                 case 3:
                     break;
-            }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            elapsed += timer1.Interval;
-
-            int progressValue = (int)((double)elapsed / duration * progressBar1.Maximum);
-
-            if (progressValue <= progressBar1.Maximum)
-            {
-                progressBar1.Value = progressValue;
-            }
-            else
-            {
-                timer1.Stop();
-                MessageBox.Show("Proceso Completo");
             }
         }
     }
