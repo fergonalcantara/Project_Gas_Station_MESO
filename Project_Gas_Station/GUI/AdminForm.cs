@@ -19,6 +19,8 @@ namespace Project_Gas_Station.GUI
         private Gasolinera totoGas;
         private ControladorSerial controladorBombas;
         public const double litroPorMinuto = 2.00;
+        private int duration;
+        private int elapsed;
         public AdminForm()
         {
             InitializeComponent();
@@ -26,12 +28,19 @@ namespace Project_Gas_Station.GUI
             totoGas.LeerArchivo();
             this.controladorBombas = new ControladorSerial();
             CargarDatos();
+
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = 100;
+            progressBar1.Value = 0;
+
+            timer1.Interval = 100; 
+            timer1.Tick += timer1_Tick;
         }
 
         private void buttonDispensarBomba1_Click(object sender, EventArgs e)
         {
             int idBomba = totoGas.Bombas[comboBoxSeleccionarBomba.SelectedIndex].Id;
-            DateTime fechaHora = DateTime.Now.Date;
+            string fechaHora = DateTime.Now.ToString("dd / MM / yyyy");
             double cantidadLitros = Math.Round(Convert.ToDouble(textBoxCantidadBomba1.Text) / Convert.ToDouble(textBoxPrecioDelDia.Text), 2);
             double precioDelDia = Convert.ToDouble(textBoxPrecioDelDia.Text);
             string tipoDespacho = Convert.ToString(comboBoxTipoDespachoBomba1.Text);
@@ -48,12 +57,14 @@ namespace Project_Gas_Station.GUI
             textBoxCantidadBomba1.Text = string.Empty;
             comboBoxTipoDespachoBomba1.Text = string.Empty;
             textBoxNombreCliente.Text = string.Empty;
+
+            CargarDatos();
         }
 
         private void buttonDispensarBomba2_Click(object sender, EventArgs e)
         {
             int idBomba = totoGas.Bombas[comboBoxSeleccionarBomba.SelectedIndex].Id;
-            DateTime fechaHora = DateTime.Now.Date;
+            string fechaHora = DateTime.Now.ToString("dd / MM / yyyy");
             double cantidadLitros = Math.Round(Convert.ToDouble(textBoxCantidadBomba2.Text) / Convert.ToDouble(textBoxPrecioDelDia.Text), 2);
             double precioDelDia = Convert.ToDouble(textBoxPrecioDelDia.Text);
             string tipoDespacho = Convert.ToString(comboBoxTipoDespachoBomba2.Text);
@@ -70,6 +81,8 @@ namespace Project_Gas_Station.GUI
             textBoxCantidadBomba2.Text = string.Empty;
             comboBoxTipoDespachoBomba2.Text = string.Empty;
             textBoxNombreCliente.Text = string.Empty;
+
+            CargarDatos();
         }
 
         private void buttonDispensarBomba3_Click(object sender, EventArgs e)
@@ -135,9 +148,9 @@ namespace Project_Gas_Station.GUI
             }
         }
 
-        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxFiltrar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox5.SelectedIndex == 0)
+            if (comboBoxFiltrar.SelectedIndex == 0)
             {
                 dateTimePicker1.Enabled = true;
             }
@@ -153,13 +166,49 @@ namespace Project_Gas_Station.GUI
 
             foreach (Abastecimiento abastecimiento in totoGas.Abastecimientos)
             {
-                dataGridView1.Rows.Add([abastecimiento.IdBomba, abastecimiento.FechaHora, abastecimiento.Cantidad, abastecimiento.PrecioPorLitro, abastecimiento.TipoDespacho, abastecimiento.NombreCliente]);
+                dataGridView1.Rows.Add([abastecimiento.IdBomba, abastecimiento.Fecha, abastecimiento.Cantidad, abastecimiento.PrecioPorLitro, abastecimiento.TipoDespacho, abastecimiento.NombreCliente]);
             }
         }
 
         private void buttonFiltrar_Click(object sender, EventArgs e)
         {
+            string fechaSeleccionada = dateTimePicker1.Value.ToString("dd / MM / yyyy");
+            switch (comboBoxFiltrar.SelectedIndex)
+            {
+                case 0:
+                    dataGridView1.Rows.Clear();
+                    foreach (Abastecimiento abastecimiento in totoGas.Abastecimientos)
+                    {
+                        if (fechaSeleccionada.Equals(abastecimiento.Fecha))
+                        {
+                            dataGridView1.Rows.Add([abastecimiento.IdBomba, abastecimiento.Fecha, abastecimiento.Cantidad, abastecimiento.PrecioPorLitro, abastecimiento.TipoDespacho, abastecimiento.NombreCliente]);
+                        }
+                    }
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+        }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            elapsed += timer1.Interval;
+
+            int progressValue = (int)((double)elapsed / duration * progressBar1.Maximum);
+
+            if (progressValue <= progressBar1.Maximum)
+            {
+                progressBar1.Value = progressValue;
+            }
+            else
+            {
+                timer1.Stop();
+                MessageBox.Show("Proceso Completo");
+            }
         }
     }
 }

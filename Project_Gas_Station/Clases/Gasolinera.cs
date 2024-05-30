@@ -61,7 +61,7 @@ namespace Project_Gas_Station.Clases
                 foreach (string subcadena in cadena)
                 {
                     if (cont == 0) { p.IdBomba = Convert.ToInt32(subcadena); }
-                    if (cont == 1) { p.FechaHora = Convert.ToDateTime(subcadena); }
+                    if (cont == 1) { p.Fecha = subcadena; }
                     if (cont == 2) { p.Cantidad = Convert.ToDouble(subcadena); }
                     if (cont == 3) { p.PrecioPorLitro = Convert.ToDouble(subcadena); }
                     if (cont == 4) { p.TipoDespacho = subcadena; }
@@ -73,7 +73,7 @@ namespace Project_Gas_Station.Clases
             LeerArchivo.Close();
         }
 
-        public void EscribirArchivo(int idBomba, DateTime fechaHora, double cantidadLitros, double precioDelDia, string tipoDespacho,string nombreCliente)
+        public void EscribirArchivo(int idBomba, string fechaHora, double cantidadLitros, double precioDelDia, string tipoDespacho,string nombreCliente)
         {
             string nombreArchivo = "abastecimientos.txt";
             FileStream archivo = new FileStream(nombreArchivo, FileMode.Append, FileAccess.Write);

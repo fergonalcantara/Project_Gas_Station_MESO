@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tabControl1 = new TabControl();
             tabPageDispensar = new TabPage();
             progressBar1 = new ProgressBar();
@@ -62,7 +63,7 @@
             tabPageEstadisticas = new TabPage();
             dateTimePicker1 = new DateTimePicker();
             buttonFiltrar = new Button();
-            comboBox5 = new ComboBox();
+            comboBoxFiltrar = new ComboBox();
             label8 = new Label();
             dataGridView1 = new DataGridView();
             ColumnIdBomba = new DataGridViewTextBoxColumn();
@@ -71,6 +72,7 @@
             ColumnPrecioDelDia = new DataGridViewTextBoxColumn();
             ColumnTipoDespacho = new DataGridViewTextBoxColumn();
             ColumnNombreCliente = new DataGridViewTextBoxColumn();
+            timer1 = new System.Windows.Forms.Timer(components);
             tabControl1.SuspendLayout();
             tabPageDispensar.SuspendLayout();
             panelBomba4.SuspendLayout();
@@ -108,7 +110,7 @@
             tabPageDispensar.Padding = new Padding(2);
             tabPageDispensar.Size = new Size(1056, 623);
             tabPageDispensar.TabIndex = 0;
-            tabPageDispensar.Text = "Disepensar";
+            tabPageDispensar.Text = "Dispensar";
             tabPageDispensar.UseVisualStyleBackColor = true;
             // 
             // progressBar1
@@ -419,7 +421,7 @@
             // 
             tabPageEstadisticas.Controls.Add(dateTimePicker1);
             tabPageEstadisticas.Controls.Add(buttonFiltrar);
-            tabPageEstadisticas.Controls.Add(comboBox5);
+            tabPageEstadisticas.Controls.Add(comboBoxFiltrar);
             tabPageEstadisticas.Controls.Add(label8);
             tabPageEstadisticas.Controls.Add(dataGridView1);
             tabPageEstadisticas.Location = new Point(4, 27);
@@ -448,15 +450,15 @@
             buttonFiltrar.UseVisualStyleBackColor = true;
             buttonFiltrar.Click += buttonFiltrar_Click;
             // 
-            // comboBox5
+            // comboBoxFiltrar
             // 
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Items.AddRange(new object[] { "Abastecimientos por Fecha", "Abastecimientos Prepago", "Abastecimientos Tanque Lleno", "Bombas por Uso" });
-            comboBox5.Location = new Point(79, 26);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(200, 26);
-            comboBox5.TabIndex = 2;
-            comboBox5.SelectedIndexChanged += comboBox5_SelectedIndexChanged;
+            comboBoxFiltrar.FormattingEnabled = true;
+            comboBoxFiltrar.Items.AddRange(new object[] { "Abastecimientos por Fecha", "Abastecimientos Prepago", "Abastecimientos Tanque Lleno", "Bombas por Uso" });
+            comboBoxFiltrar.Location = new Point(79, 26);
+            comboBoxFiltrar.Name = "comboBoxFiltrar";
+            comboBoxFiltrar.Size = new Size(200, 26);
+            comboBoxFiltrar.TabIndex = 2;
+            comboBoxFiltrar.SelectedIndexChanged += comboBoxFiltrar_SelectedIndexChanged;
             // 
             // label8
             // 
@@ -474,7 +476,7 @@
             dataGridView1.Location = new Point(3, 143);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1046, 478);
+            dataGridView1.Size = new Size(815, 478);
             dataGridView1.TabIndex = 0;
             // 
             // ColumnIdBomba
@@ -518,6 +520,10 @@
             ColumnNombreCliente.MinimumWidth = 6;
             ColumnNombreCliente.Name = "ColumnNombreCliente";
             ColumnNombreCliente.Width = 125;
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
             // 
             // AdminForm
             // 
@@ -586,7 +592,7 @@
         private Label label5;
         private DateTimePicker dateTimePicker1;
         private Button buttonFiltrar;
-        private ComboBox comboBox5;
+        private ComboBox comboBoxFiltrar;
         private Label label8;
         private DataGridViewTextBoxColumn ColumnIdBomba;
         private DataGridViewTextBoxColumn ColumnFechaDespacho;
@@ -594,5 +600,6 @@
         private DataGridViewTextBoxColumn ColumnPrecioDelDia;
         private DataGridViewTextBoxColumn ColumnTipoDespacho;
         private DataGridViewTextBoxColumn ColumnNombreCliente;
+        private System.Windows.Forms.Timer timer1;
     }
 }
