@@ -17,26 +17,14 @@ namespace Project_Gas_Station.GUI
     public partial class AdminForm : Form
     {
         private Gasolinera totoGas;
-        private ControladorSerial controladorBomba;
+        private ControladorSerial controladorBombas;
         public const double litroPorMinuto = 120.00;
         public AdminForm()
         {
             InitializeComponent();
-            InicializarControlBomba();
             this.totoGas = new Gasolinera();
             totoGas.LeerArchivo();
-        }
-
-        private void InicializarControlBomba()
-        {
-            try
-            {
-                controladorBomba = new ControladorSerial("COM7", 9600);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al abrir el puerto serial: {ex.Message}");
-            }
+            this.controladorBombas = new ControladorSerial();
         }
 
         private void buttonDispensarBomba1_Click(object sender, EventArgs e)
@@ -48,14 +36,17 @@ namespace Project_Gas_Station.GUI
             string tipoDespacho = Convert.ToString(comboBoxTipoDespachoBomba1.Text);
             string nombreCliente = textBoxNombreCliente.Text;
 
-            MessageBox.Show(Convert.ToString(cantidadLitros));
+            Abastecimiento abastecimiento = new Abastecimiento(idBomba, fechaHora,cantidadLitros,precioDelDia,tipoDespacho,nombreCliente);
+            totoGas.RegistrarTransaccion(abastecimiento);
+
+            //MessageBox.Show(Convert.ToString(cantidadLitros));
 
             totoGas.EscribirArchivo(idBomba,fechaHora,cantidadLitros,precioDelDia,tipoDespacho,nombreCliente);
 
             double tiempoEnMinutos = cantidadLitros / litroPorMinuto;
             int duracionDeLlenado = (int)(tiempoEnMinutos * 60 * 1000);
-            MessageBox.Show(Convert.ToString(duracionDeLlenado));
-            controladorBomba.SendCommand("ON", duracionDeLlenado);
+            //MessageBox.Show(Convert.ToString(duracionDeLlenado));
+            controladorBombas.SendCommand(Convert.ToString(idBomba),tipoDespacho,"ON", duracionDeLlenado); ;
 
 
             
@@ -89,7 +80,7 @@ namespace Project_Gas_Station.GUI
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            controladorBomba.Dispose();
+            controladorBombas.Dispose();
             FormMenuPrincipal principal = new FormMenuPrincipal();
             principal.Show();
         }

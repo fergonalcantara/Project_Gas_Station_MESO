@@ -12,18 +12,30 @@ namespace Project_Gas_Station.ArduinoComunication
     {
         private SerialPort serialPort;
 
-        public ControladorSerial(string puertoN, int baudRate)
+        public ControladorSerial()
         {
-            serialPort = new SerialPort(puertoN, baudRate);
-            serialPort.Open();
-            Thread.Sleep(2000);
+            InicializarControlBomba();
         }
 
-        public void SendCommand(string command, int duracion)
+        private void InicializarControlBomba()
+        {
+            try
+            {
+                this.serialPort = new SerialPort("COM7", 9600);
+                serialPort.Open();
+                Thread.Sleep(2000);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al abrir el puerto serial: {ex.Message}");
+            }
+        }
+
+        public void SendCommand(string idBomba, string tipoDespacho, string command, int duracion)
         {
             if (serialPort != null && serialPort.IsOpen)
             {
-                var json = JsonSerializer.Serialize(new { command, duracion });
+                var json = JsonSerializer.Serialize(new { idBomba, tipoDespacho, command, duracion });
                 serialPort.WriteLine(json);
                 serialPort.BaseStream.Flush(); 
             }
