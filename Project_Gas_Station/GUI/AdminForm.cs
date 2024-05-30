@@ -18,7 +18,7 @@ namespace Project_Gas_Station.GUI
     {
         private Gasolinera totoGas;
         private ControladorSerial controladorBombas;
-        public const double litroPorMinuto = 120.00;
+        public const double litroPorMinuto = 2.00;
         public AdminForm()
         {
             InitializeComponent();
@@ -39,13 +39,13 @@ namespace Project_Gas_Station.GUI
             Abastecimiento abastecimiento = new Abastecimiento(idBomba, fechaHora,cantidadLitros,precioDelDia,tipoDespacho,nombreCliente);
             totoGas.RegistrarTransaccion(abastecimiento);
 
-            //MessageBox.Show(Convert.ToString(cantidadLitros));
+            MessageBox.Show(Convert.ToString(cantidadLitros) + idBomba);
 
             totoGas.EscribirArchivo(idBomba,fechaHora,cantidadLitros,precioDelDia,tipoDespacho,nombreCliente);
 
             double tiempoEnMinutos = cantidadLitros / litroPorMinuto;
             int duracionDeLlenado = (int)(tiempoEnMinutos * 60 * 1000);
-            //MessageBox.Show(Convert.ToString(duracionDeLlenado));
+            MessageBox.Show(Convert.ToString(duracionDeLlenado));
             controladorBombas.SendCommand(Convert.ToString(idBomba),tipoDespacho,"ON", duracionDeLlenado); ;
 
 

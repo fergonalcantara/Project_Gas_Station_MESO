@@ -21,7 +21,7 @@ namespace Project_Gas_Station.ArduinoComunication
         {
             try
             {
-                this.serialPort = new SerialPort("COM7", 9600);
+                this.serialPort = new SerialPort("COM6", 9600);
                 serialPort.Open();
                 Thread.Sleep(2000);
             }
