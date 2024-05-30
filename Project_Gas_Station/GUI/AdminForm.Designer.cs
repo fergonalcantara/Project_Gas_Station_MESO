@@ -45,7 +45,7 @@
             comboBoxTipoDespachoBomba2 = new ComboBox();
             label5 = new Label();
             buttonDispensarBomba2 = new Button();
-            textBox2 = new TextBox();
+            textBoxCantidadBomba2 = new TextBox();
             panelBomba1 = new Panel();
             comboBoxTipoDespachoBomba1 = new ComboBox();
             label2 = new Label();
@@ -96,11 +96,11 @@
             tabPageDispensar.Controls.Add(panelBomba2);
             tabPageDispensar.Controls.Add(panelBomba1);
             tabPageDispensar.Controls.Add(panel1);
-            tabPageDispensar.Location = new Point(4, 24);
+            tabPageDispensar.Location = new Point(4, 27);
             tabPageDispensar.Margin = new Padding(2);
             tabPageDispensar.Name = "tabPageDispensar";
             tabPageDispensar.Padding = new Padding(2);
-            tabPageDispensar.Size = new Size(1056, 626);
+            tabPageDispensar.Size = new Size(1056, 623);
             tabPageDispensar.TabIndex = 0;
             tabPageDispensar.Text = "Disepensar";
             tabPageDispensar.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             comboBoxTipoDespachoBomba4.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
             comboBoxTipoDespachoBomba4.Location = new Point(32, 69);
             comboBoxTipoDespachoBomba4.Name = "comboBoxTipoDespachoBomba4";
-            comboBoxTipoDespachoBomba4.Size = new Size(195, 23);
+            comboBoxTipoDespachoBomba4.Size = new Size(195, 26);
             comboBoxTipoDespachoBomba4.TabIndex = 7;
             // 
             // label7
@@ -141,7 +141,7 @@
             label7.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.Location = new Point(20, 25);
             label7.Name = "label7";
-            label7.Size = new Size(217, 15);
+            label7.Size = new Size(256, 18);
             label7.TabIndex = 6;
             label7.Text = "Seleccione su tipo de Despacho:";
             // 
@@ -184,7 +184,7 @@
             comboBoxTipoDespachoBomba3.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
             comboBoxTipoDespachoBomba3.Location = new Point(32, 69);
             comboBoxTipoDespachoBomba3.Name = "comboBoxTipoDespachoBomba3";
-            comboBoxTipoDespachoBomba3.Size = new Size(196, 23);
+            comboBoxTipoDespachoBomba3.Size = new Size(196, 26);
             comboBoxTipoDespachoBomba3.TabIndex = 7;
             // 
             // label6
@@ -193,7 +193,7 @@
             label6.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(20, 25);
             label6.Name = "label6";
-            label6.Size = new Size(217, 15);
+            label6.Size = new Size(256, 18);
             label6.TabIndex = 6;
             label6.Text = "Seleccione su tipo de Despacho:";
             // 
@@ -223,7 +223,7 @@
             panelBomba2.Controls.Add(comboBoxTipoDespachoBomba2);
             panelBomba2.Controls.Add(label5);
             panelBomba2.Controls.Add(buttonDispensarBomba2);
-            panelBomba2.Controls.Add(textBox2);
+            panelBomba2.Controls.Add(textBoxCantidadBomba2);
             panelBomba2.Location = new Point(268, 108);
             panelBomba2.Margin = new Padding(2);
             panelBomba2.Name = "panelBomba2";
@@ -236,7 +236,7 @@
             comboBoxTipoDespachoBomba2.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
             comboBoxTipoDespachoBomba2.Location = new Point(32, 69);
             comboBoxTipoDespachoBomba2.Name = "comboBoxTipoDespachoBomba2";
-            comboBoxTipoDespachoBomba2.Size = new Size(194, 23);
+            comboBoxTipoDespachoBomba2.Size = new Size(194, 26);
             comboBoxTipoDespachoBomba2.TabIndex = 7;
             // 
             // label5
@@ -245,7 +245,7 @@
             label5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(20, 25);
             label5.Name = "label5";
-            label5.Size = new Size(217, 15);
+            label5.Size = new Size(256, 18);
             label5.TabIndex = 6;
             label5.Text = "Seleccione su tipo de Despacho:";
             // 
@@ -260,14 +260,14 @@
             buttonDispensarBomba2.UseVisualStyleBackColor = true;
             buttonDispensarBomba2.Click += buttonDispensarBomba2_Click;
             // 
-            // textBox2
+            // textBoxCantidadBomba2
             // 
-            textBox2.Location = new Point(31, 131);
-            textBox2.Margin = new Padding(2);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(195, 51);
-            textBox2.TabIndex = 0;
+            textBoxCantidadBomba2.Location = new Point(31, 131);
+            textBoxCantidadBomba2.Margin = new Padding(2);
+            textBoxCantidadBomba2.Multiline = true;
+            textBoxCantidadBomba2.Name = "textBoxCantidadBomba2";
+            textBoxCantidadBomba2.Size = new Size(195, 51);
+            textBoxCantidadBomba2.TabIndex = 0;
             // 
             // panelBomba1
             // 
@@ -288,7 +288,7 @@
             comboBoxTipoDespachoBomba1.Items.AddRange(new object[] { "Cantidad", "Tanque Lleno" });
             comboBoxTipoDespachoBomba1.Location = new Point(38, 69);
             comboBoxTipoDespachoBomba1.Name = "comboBoxTipoDespachoBomba1";
-            comboBoxTipoDespachoBomba1.Size = new Size(182, 23);
+            comboBoxTipoDespachoBomba1.Size = new Size(182, 26);
             comboBoxTipoDespachoBomba1.TabIndex = 5;
             comboBoxTipoDespachoBomba1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -298,7 +298,7 @@
             label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(26, 25);
             label2.Name = "label2";
-            label2.Size = new Size(217, 15);
+            label2.Size = new Size(256, 18);
             label2.TabIndex = 4;
             label2.Text = "Seleccione su tipo de Despacho:";
             // 
@@ -346,7 +346,7 @@
             label4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(747, 28);
             label4.Name = "label4";
-            label4.Size = new Size(136, 15);
+            label4.Size = new Size(160, 18);
             label4.TabIndex = 6;
             label4.Text = "Seleccionar Bomba:";
             // 
@@ -356,7 +356,7 @@
             comboBoxSeleccionarBomba.Items.AddRange(new object[] { "Bomba 1", "Bomba 2", "Bomba 3", "Bomba 4" });
             comboBoxSeleccionarBomba.Location = new Point(747, 46);
             comboBoxSeleccionarBomba.Name = "comboBoxSeleccionarBomba";
-            comboBoxSeleccionarBomba.Size = new Size(191, 23);
+            comboBoxSeleccionarBomba.Size = new Size(191, 26);
             comboBoxSeleccionarBomba.TabIndex = 5;
             comboBoxSeleccionarBomba.SelectedIndexChanged += comboBoxSeleccionarBomba_SelectedIndexChanged;
             // 
@@ -364,7 +364,7 @@
             // 
             textBoxNombreCliente.Location = new Point(408, 46);
             textBoxNombreCliente.Name = "textBoxNombreCliente";
-            textBoxNombreCliente.Size = new Size(230, 21);
+            textBoxNombreCliente.Size = new Size(230, 24);
             textBoxNombreCliente.TabIndex = 4;
             // 
             // label3
@@ -374,7 +374,7 @@
             label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(408, 28);
             label3.Name = "label3";
-            label3.Size = new Size(135, 15);
+            label3.Size = new Size(157, 18);
             label3.TabIndex = 3;
             label3.Text = "Nombre del Cliente:";
             // 
@@ -405,7 +405,7 @@
             label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(172, 10);
             label1.Name = "label1";
-            label1.Size = new Size(163, 25);
+            label1.Size = new Size(201, 31);
             label1.TabIndex = 0;
             label1.Text = "Precio Del Día";
             // 
@@ -416,11 +416,11 @@
             tabPageEstadisticas.Controls.Add(comboBox5);
             tabPageEstadisticas.Controls.Add(label8);
             tabPageEstadisticas.Controls.Add(dataGridView1);
-            tabPageEstadisticas.Location = new Point(4, 24);
+            tabPageEstadisticas.Location = new Point(4, 29);
             tabPageEstadisticas.Margin = new Padding(2);
             tabPageEstadisticas.Name = "tabPageEstadisticas";
             tabPageEstadisticas.Padding = new Padding(2);
-            tabPageEstadisticas.Size = new Size(1056, 626);
+            tabPageEstadisticas.Size = new Size(1056, 621);
             tabPageEstadisticas.TabIndex = 1;
             tabPageEstadisticas.Text = "Estadisticas";
             tabPageEstadisticas.UseVisualStyleBackColor = true;
@@ -429,7 +429,7 @@
             // 
             dateTimePicker1.Location = new Point(79, 72);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 21);
+            dateTimePicker1.Size = new Size(200, 24);
             dateTimePicker1.TabIndex = 4;
             // 
             // buttonFiltrar
@@ -447,7 +447,7 @@
             comboBox5.Items.AddRange(new object[] { "Abastecimientos por Fecha", "Abastecimientos Prepago", "Abastecimientos Tanque Lleno", "Bombas por Uso" });
             comboBox5.Location = new Point(79, 26);
             comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(200, 23);
+            comboBox5.Size = new Size(200, 26);
             comboBox5.TabIndex = 2;
             comboBox5.SelectedIndexChanged += comboBox5_SelectedIndexChanged;
             // 
@@ -456,7 +456,7 @@
             label8.AutoSize = true;
             label8.Location = new Point(32, 29);
             label8.Name = "label8";
-            label8.Size = new Size(41, 15);
+            label8.Size = new Size(49, 18);
             label8.TabIndex = 1;
             label8.Text = "Filtrar:";
             // 
@@ -471,7 +471,7 @@
             // 
             // AdminForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1083, 672);
             Controls.Add(tabControl1);
@@ -506,7 +506,7 @@
         private Panel panelBomba4;
         private Panel panelBomba3;
         private Panel panelBomba2;
-        private TextBox textBox2;
+        private TextBox textBoxCantidadBomba2;
         private Panel panelBomba1;
         private TextBox textBoxCantidadBomba1;
         private Panel panel1;
