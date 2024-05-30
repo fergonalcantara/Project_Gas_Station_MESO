@@ -19,6 +19,9 @@ namespace Project_Gas_Station.GUI
         private Gasolinera totoGas;
         private ControladorSerial controladorBombas;
         public const double litroPorMinuto = 2.00;
+        private int duracion;
+        private int elapsed;
+
 
         public AdminForm()
         {
@@ -27,6 +30,13 @@ namespace Project_Gas_Station.GUI
             totoGas.LeerArchivo();
             //this.controladorBombas = new ControladorSerial();
             CargarDatos();
+
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = 100;
+            progressBar1.Value = 0;
+
+            timer1.Interval = 8; 
+            timer1.Tick += timer1_Tick;
         }
 
         private void DispensarCombustible(TextBox textBoxCantidad, ComboBox comboBoxTipoDespacho, int indiceBomba)
@@ -50,6 +60,25 @@ namespace Project_Gas_Station.GUI
             textBoxCantidad.Text = string.Empty;
             comboBoxTipoDespacho.Text = string.Empty;
             textBoxNombreCliente.Text = string.Empty;
+
+            if (int.TryParse(Convert.ToString(duracionDeLlenado), out duracion))
+            {
+                if (duracion > 0)
+                {
+                    progressBar1.Value = 0;
+                    elapsed = 0;
+
+                    timer1.Start();
+                }
+                else
+                {
+                    MessageBox.Show("La duración debe ser mayor que cero.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese una duración válida en milisegundos.");
+            }
 
             CargarDatos();
         }
@@ -186,6 +215,24 @@ namespace Project_Gas_Station.GUI
                     break;
                 case 3:
                     break;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            elapsed += timer1.Interval;
+
+            int progressValue = (int)((double)elapsed / duracion * progressBar1.Maximum);
+
+            if (progressValue <= progressBar1.Maximum)
+            {
+                progressBar1.Value = progressValue;
+            }
+            else
+            {
+                timer1.Stop();
+                progressBar1.Value = progressBar1.Maximum;
+                MessageBox.Show("Proceso Completo");
             }
         }
     }

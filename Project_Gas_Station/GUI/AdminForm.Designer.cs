@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tabControl1 = new TabControl();
             tabPageDispensar = new TabPage();
             progressBar1 = new ProgressBar();
@@ -71,6 +72,7 @@
             ColumnPrecioDelDia = new DataGridViewTextBoxColumn();
             ColumnTipoDespacho = new DataGridViewTextBoxColumn();
             ColumnNombreCliente = new DataGridViewTextBoxColumn();
+            timer1 = new System.Windows.Forms.Timer(components);
             tabControl1.SuspendLayout();
             tabPageDispensar.SuspendLayout();
             panelBomba4.SuspendLayout();
@@ -519,6 +521,10 @@
             ColumnNombreCliente.Name = "ColumnNombreCliente";
             ColumnNombreCliente.Width = 125;
             // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(9F, 18F);
@@ -594,5 +600,6 @@
         private DataGridViewTextBoxColumn ColumnPrecioDelDia;
         private DataGridViewTextBoxColumn ColumnTipoDespacho;
         private DataGridViewTextBoxColumn ColumnNombreCliente;
+        private System.Windows.Forms.Timer timer1;
     }
 }
