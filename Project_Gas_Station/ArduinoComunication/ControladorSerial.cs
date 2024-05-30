@@ -22,6 +22,7 @@ namespace Project_Gas_Station.ArduinoComunication
             try
             {
                 this.serialPort = new SerialPort("COM6", 9600);
+                serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
                 serialPort.Open();
                 Thread.Sleep(2000);
             }
@@ -45,11 +46,39 @@ namespace Project_Gas_Station.ArduinoComunication
             }
         }
 
+        private static void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort sp = (SerialPort)sender;
+            string inData = sp.ReadLine();
+            Console.WriteLine("Data Received:");
+            Console.WriteLine(inData);
+
+            ControladorSerial jsonHandler = new ControladorSerial();
+            int duration = jsonHandler.GetDurationFromJson(inData);
+        }
+
         public void Dispose()
         {
             if (serialPort != null && serialPort.IsOpen)
             {
                 serialPort.Close();
+            }
+        }
+
+        public int GetDurationFromJson(string jsonString)
+        {
+            try
+            {
+                var jsonDoc = JsonDocument.Parse(jsonString);
+                var root = jsonDoc.RootElement;
+
+                int duration = root.GetProperty("durationMillis").GetInt32();
+                return duration;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al deserializar el JSON: " + ex.Message);
+                return -1; 
             }
         }
     }

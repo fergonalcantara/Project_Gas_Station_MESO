@@ -73,6 +73,9 @@
             ColumnTipoDespacho = new DataGridViewTextBoxColumn();
             ColumnNombreCliente = new DataGridViewTextBoxColumn();
             timer1 = new System.Windows.Forms.Timer(components);
+            label9 = new Label();
+            textBox1 = new TextBox();
+            buttonActualizarPrecio = new Button();
             tabControl1.SuspendLayout();
             tabPageDispensar.SuspendLayout();
             panelBomba4.SuspendLayout();
@@ -419,16 +422,19 @@
             // 
             // tabPageEstadisticas
             // 
+            tabPageEstadisticas.Controls.Add(buttonActualizarPrecio);
+            tabPageEstadisticas.Controls.Add(textBox1);
+            tabPageEstadisticas.Controls.Add(label9);
             tabPageEstadisticas.Controls.Add(dateTimePicker1);
             tabPageEstadisticas.Controls.Add(buttonFiltrar);
             tabPageEstadisticas.Controls.Add(comboBoxFiltrar);
             tabPageEstadisticas.Controls.Add(label8);
             tabPageEstadisticas.Controls.Add(dataGridView1);
-            tabPageEstadisticas.Location = new Point(4, 29);
+            tabPageEstadisticas.Location = new Point(4, 27);
             tabPageEstadisticas.Margin = new Padding(2);
             tabPageEstadisticas.Name = "tabPageEstadisticas";
             tabPageEstadisticas.Padding = new Padding(2);
-            tabPageEstadisticas.Size = new Size(1056, 621);
+            tabPageEstadisticas.Size = new Size(1056, 623);
             tabPageEstadisticas.TabIndex = 1;
             tabPageEstadisticas.Text = "Estadisticas";
             tabPageEstadisticas.UseVisualStyleBackColor = true;
@@ -525,6 +531,32 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(623, 29);
+            label9.Name = "label9";
+            label9.Size = new Size(104, 36);
+            label9.TabIndex = 5;
+            label9.Text = "Actualizar \r\nPrecio del Dia:";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(733, 29);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 24);
+            textBox1.TabIndex = 6;
+            // 
+            // buttonActualizarPrecio
+            // 
+            buttonActualizarPrecio.Location = new Point(882, 24);
+            buttonActualizarPrecio.Name = "buttonActualizarPrecio";
+            buttonActualizarPrecio.Size = new Size(94, 29);
+            buttonActualizarPrecio.TabIndex = 7;
+            buttonActualizarPrecio.Text = "Actualizar";
+            buttonActualizarPrecio.UseVisualStyleBackColor = true;
+            buttonActualizarPrecio.Click += buttonActualizarPrecio_Click;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(9F, 18F);
@@ -601,5 +633,8 @@
         private DataGridViewTextBoxColumn ColumnTipoDespacho;
         private DataGridViewTextBoxColumn ColumnNombreCliente;
         private System.Windows.Forms.Timer timer1;
+        private Button buttonActualizarPrecio;
+        private TextBox textBox1;
+        private Label label9;
     }
 }

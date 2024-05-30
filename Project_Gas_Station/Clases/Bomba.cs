@@ -18,15 +18,5 @@ namespace Project_Gas_Station.Clases
 
         public int Id { get => id; set => id = value; }
         public double CantidadDispensada { get => cantidadDispensada; set => cantidadDispensada = value; }
-
-        public void IniciarAbastecimiento(double cantidad, bool esPrepago)
-        {
-            CantidadDispensada = cantidad;
-        }
-
-        public void DetenerAbastecimiento()
-        {
-
-        }
     }
 }

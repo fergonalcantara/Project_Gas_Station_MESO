@@ -18,66 +18,73 @@ namespace Project_Gas_Station.GUI
     {
         private Gasolinera totoGas;
         private ControladorSerial controladorBombas;
+        private JsonHandler jsonHandler;
         public const double litroPorMinuto = 2.00;
         private int duracion;
         private int elapsed;
-
 
         public AdminForm()
         {
             InitializeComponent();
             this.totoGas = new Gasolinera();
             totoGas.LeerArchivo();
-            //this.controladorBombas = new ControladorSerial();
+            this.controladorBombas = new ControladorSerial();
             CargarDatos();
 
             progressBar1.Minimum = 0;
             progressBar1.Maximum = 100;
             progressBar1.Value = 0;
 
-            timer1.Interval = 8; 
+            timer1.Interval = 8;
             timer1.Tick += timer1_Tick;
         }
 
         private void DispensarCombustible(TextBox textBoxCantidad, ComboBox comboBoxTipoDespacho, int indiceBomba)
         {
-            int idBomba = indiceBomba;
-            string fechaHora = DateTime.Now.ToString("dd / MM / yyyy");
-            double cantidadLitros = Math.Round(Convert.ToDouble(textBoxCantidad.Text) / Convert.ToDouble(textBoxPrecioDelDia.Text), 2);
-            double precioDelDia = Convert.ToDouble(textBoxPrecioDelDia.Text);
-            string tipoDespacho = Convert.ToString(comboBoxTipoDespacho.Text);
-            string nombreCliente = textBoxNombreCliente.Text;
-
-            Abastecimiento abastecimiento = new Abastecimiento(idBomba, fechaHora, cantidadLitros, precioDelDia, tipoDespacho, nombreCliente);
-            totoGas.RegistrarTransaccion(abastecimiento);
-            totoGas.EscribirArchivo(idBomba, fechaHora, cantidadLitros, precioDelDia, tipoDespacho, nombreCliente);
-
-            double tiempoEnMinutos = cantidadLitros / litroPorMinuto;
-            int duracionDeLlenado = (int)(tiempoEnMinutos * 60 * 1000);
-            MessageBox.Show(Convert.ToString(duracionDeLlenado));
-            //controladorBombas.SendCommand(Convert.ToString(idBomba), tipoDespacho, "ON", duracionDeLlenado);
-
-            textBoxCantidad.Text = string.Empty;
-            comboBoxTipoDespacho.Text = string.Empty;
-            textBoxNombreCliente.Text = string.Empty;
-
-            if (int.TryParse(Convert.ToString(duracionDeLlenado), out duracion))
+            if (comboBoxTipoDespacho.SelectedItem == "Cantidad")
             {
-                if (duracion > 0)
-                {
-                    progressBar1.Value = 0;
-                    elapsed = 0;
+                int idBomba = indiceBomba;
+                string fechaHora = DateTime.Now.ToString("dd / MM / yyyy");
+                double cantidadLitros = Math.Round(Convert.ToDouble(textBoxCantidad.Text) / Convert.ToDouble(textBoxPrecioDelDia.Text), 2);
+                double precioDelDia = Convert.ToDouble(textBoxPrecioDelDia.Text);
+                string tipoDespacho = Convert.ToString(comboBoxTipoDespacho.Text);
+                string nombreCliente = textBoxNombreCliente.Text;
 
-                    timer1.Start();
-                }
-                else
-                {
-                    MessageBox.Show("La duración debe ser mayor que cero.");
-                }
+                Abastecimiento abastecimiento = new Abastecimiento(idBomba, fechaHora, cantidadLitros, precioDelDia, tipoDespacho, nombreCliente);
+                totoGas.RegistrarTransaccion(abastecimiento);
+                totoGas.EscribirArchivo(idBomba, fechaHora, cantidadLitros, precioDelDia, tipoDespacho, nombreCliente);
+
+                double tiempoEnMinutos = cantidadLitros / litroPorMinuto;
+                int duracionDeLlenado = (int)(tiempoEnMinutos * 60 * 1000);
+                MessageBox.Show(Convert.ToString(duracionDeLlenado));
+                controladorBombas.SendCommand(Convert.ToString(idBomba), tipoDespacho, "ON", duracionDeLlenado);
+
+                textBoxCantidad.Text = string.Empty;
+                comboBoxTipoDespacho.Text = string.Empty;
+                textBoxNombreCliente.Text = string.Empty;
+
+                TimerParaLlenado(duracionDeLlenado);
             }
             else
             {
-                MessageBox.Show("Ingrese una duración válida en milisegundos.");
+                int idBomba = indiceBomba;
+                string fechaHora = DateTime.Now.ToString("dd / MM / yyyy");
+                double cantidadLitros = Math.Round(Convert.ToDouble(textBoxCantidad.Text) / Convert.ToDouble(textBoxPrecioDelDia.Text), 2);
+                double precioDelDia = Convert.ToDouble(textBoxPrecioDelDia.Text);
+                string tipoDespacho = Convert.ToString(comboBoxTipoDespacho.Text);
+                string nombreCliente = textBoxNombreCliente.Text;
+
+                controladorBombas.SendCommand(Convert.ToString(idBomba), tipoDespacho, "ON", 0);
+
+                Abastecimiento abastecimiento = new Abastecimiento(idBomba, fechaHora, cantidadLitros, precioDelDia, tipoDespacho, nombreCliente);
+                totoGas.RegistrarTransaccion(abastecimiento);
+                totoGas.EscribirArchivo(idBomba, fechaHora, cantidadLitros, precioDelDia, tipoDespacho, nombreCliente);
+
+
+
+                textBoxCantidad.Text = string.Empty;
+                comboBoxTipoDespacho.Text = string.Empty;
+                textBoxNombreCliente.Text = string.Empty;
             }
 
             CargarDatos();
@@ -103,9 +110,31 @@ namespace Project_Gas_Station.GUI
             DispensarCombustible(textBoxCantidadBomba4, comboBoxTipoDespachoBomba4, 4);
         }
 
+        public void TimerParaLlenado(int duracionDelLlenado)
+        {
+            if (int.TryParse(Convert.ToString(duracionDelLlenado), out duracion))
+            {
+                if (duracion > 0)
+                {
+                    progressBar1.Value = 0;
+                    elapsed = 0;
+
+                    timer1.Start();
+                }
+                else
+                {
+                    MessageBox.Show("La duración debe ser mayor que cero.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese una duración válida en milisegundos.");
+            }
+        }
+
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //controladorBombas.Dispose();
+            controladorBombas.Dispose();
             FormMenuPrincipal principal = new FormMenuPrincipal();
             principal.Show();
         }
@@ -234,6 +263,12 @@ namespace Project_Gas_Station.GUI
                 progressBar1.Value = progressBar1.Maximum;
                 MessageBox.Show("Proceso Completo");
             }
+        }
+
+        private void buttonActualizarPrecio_Click(object sender, EventArgs e)
+        {
+            string precioActualizado = textBox1.Text;
+            textBoxPrecioDelDia.Text = precioActualizado;
         }
     }
 }

@@ -29,16 +29,6 @@ namespace Project_Gas_Station.Clases
         public List<Abastecimiento> Abastecimientos { get => abastecimientos; set => abastecimientos = value; }
         public double PrecioPorLitro1 { get => precioPorLitro; set => precioPorLitro = value; }
 
-        public void IniciarAbastecimiento(int idBomba, double cantidad, bool esPrepago)
-        {
-
-        }
-
-        public void DetenerAbastecimiento(int idBomba)
-        {
-
-        }
-
         public void RegistrarTransaccion(Abastecimiento abastecimiento)
         {
             Abastecimientos.Add(abastecimiento);
