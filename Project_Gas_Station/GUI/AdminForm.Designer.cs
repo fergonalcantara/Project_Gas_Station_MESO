@@ -35,12 +35,12 @@
             comboBoxTipoDespachoBomba4 = new ComboBox();
             label7 = new Label();
             buttonDispensarBomba4 = new Button();
-            textBox4 = new TextBox();
+            textBoxCantidadBomba4 = new TextBox();
             panelBomba3 = new Panel();
             comboBoxTipoDespachoBomba3 = new ComboBox();
             label6 = new Label();
             buttonDispensarBomba3 = new Button();
-            textBox3 = new TextBox();
+            textBoxCantidadBomba3 = new TextBox();
             panelBomba2 = new Panel();
             comboBoxTipoDespachoBomba2 = new ComboBox();
             label5 = new Label();
@@ -65,6 +65,12 @@
             comboBox5 = new ComboBox();
             label8 = new Label();
             dataGridView1 = new DataGridView();
+            ColumnIdBomba = new DataGridViewTextBoxColumn();
+            ColumnFechaDespacho = new DataGridViewTextBoxColumn();
+            ColumnCantidadEnLitros = new DataGridViewTextBoxColumn();
+            ColumnPrecioDelDia = new DataGridViewTextBoxColumn();
+            ColumnTipoDespacho = new DataGridViewTextBoxColumn();
+            ColumnNombreCliente = new DataGridViewTextBoxColumn();
             tabControl1.SuspendLayout();
             tabPageDispensar.SuspendLayout();
             panelBomba4.SuspendLayout();
@@ -119,7 +125,7 @@
             panelBomba4.Controls.Add(comboBoxTipoDespachoBomba4);
             panelBomba4.Controls.Add(label7);
             panelBomba4.Controls.Add(buttonDispensarBomba4);
-            panelBomba4.Controls.Add(textBox4);
+            panelBomba4.Controls.Add(textBoxCantidadBomba4);
             panelBomba4.Location = new Point(792, 108);
             panelBomba4.Margin = new Padding(2);
             panelBomba4.Name = "panelBomba4";
@@ -156,14 +162,14 @@
             buttonDispensarBomba4.UseVisualStyleBackColor = true;
             buttonDispensarBomba4.Click += buttonDispensarBomba4_Click;
             // 
-            // textBox4
+            // textBoxCantidadBomba4
             // 
-            textBox4.Location = new Point(32, 131);
-            textBox4.Margin = new Padding(2);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(195, 51);
-            textBox4.TabIndex = 0;
+            textBoxCantidadBomba4.Location = new Point(32, 131);
+            textBoxCantidadBomba4.Margin = new Padding(2);
+            textBoxCantidadBomba4.Multiline = true;
+            textBoxCantidadBomba4.Name = "textBoxCantidadBomba4";
+            textBoxCantidadBomba4.Size = new Size(195, 51);
+            textBoxCantidadBomba4.TabIndex = 0;
             // 
             // panelBomba3
             // 
@@ -171,7 +177,7 @@
             panelBomba3.Controls.Add(comboBoxTipoDespachoBomba3);
             panelBomba3.Controls.Add(label6);
             panelBomba3.Controls.Add(buttonDispensarBomba3);
-            panelBomba3.Controls.Add(textBox3);
+            panelBomba3.Controls.Add(textBoxCantidadBomba3);
             panelBomba3.Location = new Point(531, 108);
             panelBomba3.Margin = new Padding(2);
             panelBomba3.Name = "panelBomba3";
@@ -208,14 +214,14 @@
             buttonDispensarBomba3.UseVisualStyleBackColor = true;
             buttonDispensarBomba3.Click += buttonDispensarBomba3_Click;
             // 
-            // textBox3
+            // textBoxCantidadBomba3
             // 
-            textBox3.Location = new Point(29, 131);
-            textBox3.Margin = new Padding(2);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(199, 51);
-            textBox3.TabIndex = 0;
+            textBoxCantidadBomba3.Location = new Point(29, 131);
+            textBoxCantidadBomba3.Margin = new Padding(2);
+            textBoxCantidadBomba3.Multiline = true;
+            textBoxCantidadBomba3.Name = "textBoxCantidadBomba3";
+            textBoxCantidadBomba3.Size = new Size(199, 51);
+            textBoxCantidadBomba3.TabIndex = 0;
             // 
             // panelBomba2
             // 
@@ -416,11 +422,11 @@
             tabPageEstadisticas.Controls.Add(comboBox5);
             tabPageEstadisticas.Controls.Add(label8);
             tabPageEstadisticas.Controls.Add(dataGridView1);
-            tabPageEstadisticas.Location = new Point(4, 29);
+            tabPageEstadisticas.Location = new Point(4, 27);
             tabPageEstadisticas.Margin = new Padding(2);
             tabPageEstadisticas.Name = "tabPageEstadisticas";
             tabPageEstadisticas.Padding = new Padding(2);
-            tabPageEstadisticas.Size = new Size(1056, 621);
+            tabPageEstadisticas.Size = new Size(1056, 623);
             tabPageEstadisticas.TabIndex = 1;
             tabPageEstadisticas.Text = "Estadisticas";
             tabPageEstadisticas.UseVisualStyleBackColor = true;
@@ -440,6 +446,7 @@
             buttonFiltrar.TabIndex = 3;
             buttonFiltrar.Text = "Filtrar";
             buttonFiltrar.UseVisualStyleBackColor = true;
+            buttonFiltrar.Click += buttonFiltrar_Click;
             // 
             // comboBox5
             // 
@@ -463,11 +470,54 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColumnIdBomba, ColumnFechaDespacho, ColumnCantidadEnLitros, ColumnPrecioDelDia, ColumnTipoDespacho, ColumnNombreCliente });
             dataGridView1.Location = new Point(3, 143);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1046, 478);
             dataGridView1.TabIndex = 0;
+            // 
+            // ColumnIdBomba
+            // 
+            ColumnIdBomba.HeaderText = "ID Bomba";
+            ColumnIdBomba.MinimumWidth = 6;
+            ColumnIdBomba.Name = "ColumnIdBomba";
+            ColumnIdBomba.Width = 125;
+            // 
+            // ColumnFechaDespacho
+            // 
+            ColumnFechaDespacho.HeaderText = "Fecha de Despacho";
+            ColumnFechaDespacho.MinimumWidth = 6;
+            ColumnFechaDespacho.Name = "ColumnFechaDespacho";
+            ColumnFechaDespacho.Width = 125;
+            // 
+            // ColumnCantidadEnLitros
+            // 
+            ColumnCantidadEnLitros.HeaderText = "Cantidad en Litros";
+            ColumnCantidadEnLitros.MinimumWidth = 6;
+            ColumnCantidadEnLitros.Name = "ColumnCantidadEnLitros";
+            ColumnCantidadEnLitros.Width = 125;
+            // 
+            // ColumnPrecioDelDia
+            // 
+            ColumnPrecioDelDia.HeaderText = "Precio del Día";
+            ColumnPrecioDelDia.MinimumWidth = 6;
+            ColumnPrecioDelDia.Name = "ColumnPrecioDelDia";
+            ColumnPrecioDelDia.Width = 125;
+            // 
+            // ColumnTipoDespacho
+            // 
+            ColumnTipoDespacho.HeaderText = "Tipo de Despacho";
+            ColumnTipoDespacho.MinimumWidth = 6;
+            ColumnTipoDespacho.Name = "ColumnTipoDespacho";
+            ColumnTipoDespacho.Width = 125;
+            // 
+            // ColumnNombreCliente
+            // 
+            ColumnNombreCliente.HeaderText = "Nombre del Cliente";
+            ColumnNombreCliente.MinimumWidth = 6;
+            ColumnNombreCliente.Name = "ColumnNombreCliente";
+            ColumnNombreCliente.Width = 125;
             // 
             // AdminForm
             // 
@@ -512,9 +562,9 @@
         private Panel panel1;
         private TabPage tabPageEstadisticas;
         private Button buttonDispensarBomba4;
-        private TextBox textBox4;
+        private TextBox textBoxCantidadBomba4;
         private Button buttonDispensarBomba3;
-        private TextBox textBox3;
+        private TextBox textBoxCantidadBomba3;
         private Button buttonDispensarBomba2;
         private Button buttonDispensarBomba1;
         private ProgressBar progressBar1;
@@ -538,5 +588,11 @@
         private Button buttonFiltrar;
         private ComboBox comboBox5;
         private Label label8;
+        private DataGridViewTextBoxColumn ColumnIdBomba;
+        private DataGridViewTextBoxColumn ColumnFechaDespacho;
+        private DataGridViewTextBoxColumn ColumnCantidadEnLitros;
+        private DataGridViewTextBoxColumn ColumnPrecioDelDia;
+        private DataGridViewTextBoxColumn ColumnTipoDespacho;
+        private DataGridViewTextBoxColumn ColumnNombreCliente;
     }
 }

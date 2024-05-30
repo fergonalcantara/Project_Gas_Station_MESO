@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_Gas_Station.GUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,7 +71,6 @@ namespace Project_Gas_Station.Clases
                 Abastecimientos.Add(p);
             }
             LeerArchivo.Close();
-            //CargarPersonas(); 
         }
 
         public void EscribirArchivo(int idBomba, DateTime fechaHora, double cantidadLitros, double precioDelDia, string tipoDespacho,string nombreCliente)
